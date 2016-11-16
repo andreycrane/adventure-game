@@ -11,7 +11,12 @@ function preload() {
 }
 
 
-var map, layer, player, cursors;
+var
+	map,
+	levelLayer,
+	water,
+	player,
+	cursors;
 
 function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -20,19 +25,22 @@ function create() {
 	
 	map = game.add.tilemap('level');
 	map.addTilesetImage('blocks', 'tiles');
+	console.log(map.properties);
 	
-	layer = map.createLayer('level-layer');
 	
-	map.setCollisionBetween(1, 180, true, 'level-layer');
+	levelLayer = map.createLayer('level-layer');
+	
+	console.log(map.properties.platform.split(',').map(i => parseInt(i)));
+	map.setCollision(map.properties.platform.split(',').map(i => parseInt(i)), true, 'level-layer');
 
-	layer.resizeWorld();
+	levelLayer.resizeWorld();
 	
 	player = game.add.sprite(32, game.world.height - 150, 'dude');
 	
 	//  We need to enable physics on the player
 	game.physics.arcade.enable(player);
 	
-	game.physics.arcade.collideSpriteVsTilemapLayer(player, layer);
+	game.physics.arcade.collideSpriteVsTilemapLayer(player, levelLayer);
 	
 	//  Player physics properties. Give the little guy a slight bounce.
 	player.body.bounce.y = 0.2;
@@ -45,10 +53,16 @@ function create() {
 	
 	cursors = game.input.keyboard.createCursorKeys();
 	game.camera.follow(player);
+	
+	player.body.onWorldBounds = new Phaser.Signal();
+	
+	player.body.onWorldBounds.add(function(sprite, up, down, left, righ) {
+		if (down) game.state.restart();
+	}, this);
 }
 
 function update() {
-	var hitPlatform = game.physics.arcade.collide(player, layer);
+	var hitPlatform = game.physics.arcade.collide(player, levelLayer);
 	
 	player.body.velocity.x = 0;
 	
