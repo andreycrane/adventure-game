@@ -17,7 +17,8 @@ var
 	water,
 	player,
 	cursors,
-	stairs;
+	stairs,
+	platform;
 
 function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -30,13 +31,17 @@ function create() {
 	
 	levelLayer = map.createLayer('level-layer');
 	
-	console.log(map.properties.platform.split(',').map(i => parseInt(i)));
 	map.setCollision(map.properties.platform.split(',').map(i => parseInt(i)), true, 'level-layer');
 	
 	stairs = game.add.group();
 	stairs.enableBody = true;
 	
+	platform = game.add.group();
+	platform.enableBody = true;
+	
 	map.createFromTiles(82, null, null, 'level-layer', stairs);
+	map.createFromTiles(map.properties.platform.split(',').map(i => parseInt(i)), null, null, 'level-layer', platform);
+	
 
 	levelLayer.resizeWorld();
 	
@@ -88,10 +93,18 @@ function update() {
 		player.body.velocity.y = -350;
 	}
 	
-	if (overlapStairs && player.body.overlapY <= 0) {
-		console.log('!', player.body.overlapY);
-		if (cursors.up.isDown) player.y -= 10;
-		if (cursors.down.isDown) player.y += 10;
+	if (overlapStairs) {
+		player.body.allowGravity = false;
+		player.body.velocity.y = 0;
+		
+		if (cursors.up.isDown) player.body.y -= 5;
+		if (cursors.down.isDown) {
+			[1, 1, 1, 1, 1].forEach(function() {
+				if ( !game.physics.arcade.overlap(player, platform) )  {
+					player.body.y += 1;
+				}
+			});
+		}
 		
 		if (cursors.right.isDown) {
 			player.x += 5;
@@ -103,8 +116,9 @@ function update() {
 			player.animations.play('left');
 		}
 		
-		player.body.moves = false;
 	} else {
-		player.body.moves = true;
+		player.body.checkCollision.up = true;
+		player.body.checkCollision.down = true;
+		player.body.allowGravity = true;
 	}
 }
