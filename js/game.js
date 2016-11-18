@@ -1,5 +1,6 @@
 'use strict';
 
+/* globals Phaser */
 var Adventure = Adventure || {};
 
 
@@ -51,6 +52,16 @@ Adventure.Game.prototype = {
 		this.o.player = new Adventure.Player(this, 32, this.game.world.height - 150);
 	},
 	
+	
+	createEnemies: function() {
+		this.o.enemies = [];
+		
+		[1, 2, 3].forEach(function() {
+			this.o.enemies.push(new Adventure.Enemy(this, 100, 200));
+		}, this);
+	},
+	
+	
 	create: function() {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		this.game.stage.backgroundColor = '#338fff';
@@ -60,6 +71,7 @@ Adventure.Game.prototype = {
 		this.createPlatforms();
 		this.createStairs();
 		this.createThorns();
+		this.createEnemies();
 		this.createPlayer();
 		
 		this.o.cursors = this.game.input.keyboard.createCursorKeys();
@@ -91,7 +103,7 @@ Adventure.Game.prototype = {
 		
 		if (overlapStairs) {
 			if (this.o.cursors.up.isDown) {
-				this.o.player.body.y -= 10;
+				this.o.player.body.y -= 100;
 			}
 			if (this.o.cursors.down.isDown) {
 				[1, 1, 1, 1, 1].forEach(function(i) {
@@ -125,8 +137,15 @@ Adventure.Game.prototype = {
 		}
 	},
 	
+	
+	updateEnemies: function() {
+		this.o.enemies.forEach(function(e) { e.update(); });
+	},
+	
 	update: function() {
 		this.updatePlatform();
 		this.updateStairs();
+		this.updateThorns();
+		this.updateEnemies();
 	}
 };
