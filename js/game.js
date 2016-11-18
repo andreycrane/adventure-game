@@ -1,3 +1,5 @@
+'use strict';
+
 var Adventure = Adventure || {};
 
 
@@ -46,23 +48,7 @@ Adventure.Game.prototype = {
 	},
 	
 	createPlayer: function() {
-		this.o.player = this.game.add.sprite(32, this.game.world.height - 150, 'dude');
-		
-		this.game.physics.arcade.enable(this.o.player);
-		this.game.physics.arcade.collideSpriteVsTilemapLayer(this.o.player, this.o.levelLayer);
-		
-		this.o.player.body.bounce.y = 0.2;
-		this.o.player.body.gravity.y = 300;
-		this.o.player.body.collideWorldBounds = true;
-		
-		this.o.player.animations.add('left', [0, 1, 2, 3], 10, true);
-		this.o.player.animations.add('right', [5, 6, 7, 8], 10, true);
-		
-		this.o.player.body.onWorldBounds = new Phaser.Signal();
-		
-		this.o.player.body.onWorldBounds.add(function(sprite, up, down, left, righ) {
-			if (down) this.game.state.restart();
-		}, this);
+		this.o.player = new Adventure.Player(this, 32, this.game.world.height - 150);
 	},
 	
 	create: function() {
@@ -72,10 +58,10 @@ Adventure.Game.prototype = {
 		this.createMap();
 		this.createLayer();
 		this.createPlatforms();
+		this.createStairs();
 		this.createThorns();
 		this.createPlayer();
 		
-		this.game.camera.follow(this.o.player);
 		this.o.cursors = this.game.input.keyboard.createCursorKeys();
 	},
 	
@@ -125,13 +111,9 @@ Adventure.Game.prototype = {
 				this.o.player.animations.play('left');
 			}
 			
-			this.o.player.body.velocity.y = 0;
-			this.o.player.body.velocity.x = 0;
-			this.o.player.body.allowGravity = false;
+			this.o.player.pauseGravity();
 		} else {
-			this.o.player.body.checkCollision.up = true;
-			this.o.player.body.checkCollision.down = true;
-			this.o.player.body.allowGravity = true;
+			this.o.player.resumeGravity();
 		}
 	},
 	
