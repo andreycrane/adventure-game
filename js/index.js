@@ -17,11 +17,11 @@ var
 	water,
 	player,
 	cursors,
-	stairs;
+	stairs,
+	platforms;
 
 function create() {
 	game.physics.startSystem(Phaser.Physics.ARCADE);
-	
 	game.stage.backgroundColor = '#338fff';
 	
 	map = game.add.tilemap('level');
@@ -29,29 +29,25 @@ function create() {
 	
 	
 	levelLayer = map.createLayer('level-layer');
-	
-	console.log(map.properties.platform.split(',').map(i => parseInt(i)));
 	map.setCollision(map.properties.platform.split(',').map(i => parseInt(i)), true, 'level-layer');
+	levelLayer.resizeWorld();
+	
+	platforms = game.add.group();
+	platforms.enableBody = true;
+	map.createFromTiles(map.properties.platform.split(',').map(i => parseInt(i)), null, null, 'level-layer', platforms);
 	
 	stairs = game.add.group();
 	stairs.enableBody = true;
-	
 	map.createFromTiles(82, null, null, 'level-layer', stairs);
 
-	levelLayer.resizeWorld();
-	
 	player = game.add.sprite(32, game.world.height - 150, 'dude');
-	
 	//  We need to enable physics on the player
 	game.physics.arcade.enable(player);
-	
 	game.physics.arcade.collideSpriteVsTilemapLayer(player, levelLayer);
-	
 	//  Player physics properties. Give the little guy a slight bounce.
 	player.body.bounce.y = 0.2;
 	player.body.gravity.y = 300;
 	player.body.collideWorldBounds = true;
-	
 	//  Our two animations, walking left and right.
 	player.animations.add('left', [0, 1, 2, 3], 10, true);
 	player.animations.add('right', [5, 6, 7, 8], 10, true);
@@ -63,8 +59,7 @@ function create() {
 	
 	player.body.onWorldBounds.add(function(sprite, up, down, left, righ) {
 		if (down) game.state.restart();
-	}, this);
-	
+	});
 }
 
 function update() {
@@ -88,23 +83,32 @@ function update() {
 		player.body.velocity.y = -350;
 	}
 	
-	if (overlapStairs && player.body.overlapY <= 0) {
-		console.log('!', player.body.overlapY);
-		if (cursors.up.isDown) player.y -= 10;
-		if (cursors.down.isDown) player.y += 10;
+	if (overlapStairs) {
+		if (cursors.up.isDown) player.body.y -= 10;
+		if (cursors.down.isDown) {
+			[1, 1, 1, 1, 1].forEach(function(i) {
+				if ( !game.physics.arcade.overlap(player, platforms) ) {
+					player.body.y += 1;
+				}
+			});
+		}
 		
 		if (cursors.right.isDown) {
-			player.x += 5;
+			player.body.x += 5;
 			player.animations.play('right');
 		}
 		
 		if (cursors.left.isDown) {
-			player.x -= 5;
+			player.body.x -= 5;
 			player.animations.play('left');
 		}
 		
-		player.body.moves = false;
+		player.body.velocity.y = 0;
+		player.body.velocity.x = 0;
+		player.body.allowGravity = false;
 	} else {
-		player.body.moves = true;
+		player.body.checkCollision.up = true;
+		player.body.checkCollision.down = true;
+		player.body.allowGravity = true;
 	}
 }
