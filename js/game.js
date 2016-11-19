@@ -153,5 +153,9 @@ Adventure.Game.prototype = {
 		this.updateStairs();
 		this.updateThorns();
 		this.updateEnemies();
+		
+		if (this.input.keyboard.isDown(Phaser.Keyboard.Z)) {
+			this.o.player.fire();
+		}
 	}
 };
