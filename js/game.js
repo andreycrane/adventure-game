@@ -54,11 +54,13 @@ Adventure.Game.prototype = {
 	
 	
 	createEnemies: function() {
-		this.o.enemies = [];
-		
-		[1, 2, 3].forEach(function() {
-			this.o.enemies.push(new Adventure.Enemy(this, 100, 200));
-		}, this);
+		this.o.enemies = Adventure.Enemy.createFromObjects(this);
+	},
+	
+	
+	createColleagues: function() {
+		this.o.colleagues = [];
+		this.o.colleagues.push(new Adventure.Collegue(this, 200, 200));
 	},
 	
 	
@@ -72,6 +74,7 @@ Adventure.Game.prototype = {
 		this.createStairs();
 		this.createThorns();
 		this.createEnemies();
+		this.createColleagues();
 		this.createPlayer();
 		
 		this.o.cursors = this.game.input.keyboard.createCursorKeys();
@@ -140,6 +143,10 @@ Adventure.Game.prototype = {
 	
 	updateEnemies: function() {
 		this.o.enemies.forEach(function(e) { e.update(); });
+	},
+	
+	updateCollegues: function() {
+		this.o.colleagues.forEach(function(c) { c.update(); });
 	},
 	
 	update: function() {

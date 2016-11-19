@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="20" tilewidth="34" tileheight="34" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="20" tilewidth="34" tileheight="34" nextobjectid="9">
  <properties>
   <property name="platform" value="78, 131, 132, 137, 139, 140"/>
  </properties>
- <tileset firstgid="1" name="blocks" tilewidth="34" tileheight="34" tilecount="180" columns="18">
+ <tileset firstgid="1" name="blocks" tilewidth="34" tileheight="34" tilecount="180">
   <properties>
    <property name="transparentcolor" value="#000000"/>
   </properties>
@@ -8019,7 +8019,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="83"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -8819,7 +8819,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="82"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -9619,7 +9619,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="82"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -10419,7 +10419,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="82"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -11219,7 +11219,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="82"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -12019,7 +12019,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="82"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -12819,7 +12819,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="82"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -13619,7 +13619,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="82"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -16018,4 +16018,9 @@
    <tile gid="0"/>
   </data>
  </layer>
+ <objectgroup name="enemy-layer">
+  <object id="1" gid="52" x="646" y="612" width="34" height="34"/>
+  <object id="7" gid="52" x="748" y="612" width="34" height="34"/>
+  <object id="8" gid="52" x="306" y="612" width="34" height="34"/>
+ </objectgroup>
 </map>
