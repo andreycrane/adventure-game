@@ -110,7 +110,7 @@ Adventure.Game.prototype = {
 					if ( !this.game.physics.arcade.overlap(this.o.player, this.o.platforms) ) {
 						this.o.player.body.y += 1;
 					}
-				});
+				}, this);
 			}
 			
 			if (this.o.cursors.right.isDown) {
