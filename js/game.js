@@ -59,8 +59,7 @@ Adventure.Game.prototype = {
 	
 	
 	createColleagues: function() {
-		this.o.colleagues = [];
-		this.o.colleagues.push(new Adventure.Collegue(this, 200, 200));
+		this.o.colleagues = Adventure.Collegue.createFromObjects(this);
 	},
 	
 	

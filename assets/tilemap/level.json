@@ -47,15 +47,27 @@
                  "width":34,
                  "x":748,
                  "y":612
-                }, 
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":800,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":20,
+         "name":"collegue-layer",
+         "objects":[
                 {
                  "gid":52,
                  "height":34,
-                 "id":8,
+                 "id":11,
                  "name":"",
                  "properties":
                     {
-
+                     "congradulation":"Hello!"
                     },
                  "rotation":0,
                  "type":"",
@@ -71,7 +83,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":9,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "properties":
     {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="20" tilewidth="34" tileheight="34" nextobjectid="9">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="800" height="20" tilewidth="34" tileheight="34" nextobjectid="12">
  <properties>
   <property name="platform" value="78, 131, 132, 137, 139, 140"/>
  </properties>
@@ -16021,6 +16021,12 @@
  <objectgroup name="enemy-layer">
   <object id="1" gid="52" x="646" y="612" width="34" height="34"/>
   <object id="7" gid="52" x="748" y="612" width="34" height="34"/>
-  <object id="8" gid="52" x="306" y="612" width="34" height="34"/>
+ </objectgroup>
+ <objectgroup name="collegue-layer">
+  <object id="11" gid="52" x="306" y="612" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="Hello!"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>
