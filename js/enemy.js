@@ -30,7 +30,10 @@ Adventure.Enemy.prototype.constructor = Adventure.Enemy;
 Adventure.Enemy.velocity = 70;
 
 Adventure.Enemy.prototype.update = function() {
-	this.state.game.physics.arcade.collide(this, this.state.o.levelLayer);
+	this.state.game.physics.arcade.collide(this, this.state.o.levelLayer, function() {
+		if ( this.body.blocked.right ) this.moveLeft();
+		if ( this.body.blocked.left ) this.moveRight();
+	}, null, this);
 	
 	if (!this.hasPlatformLeft() && this.hasPlatformRight()) {
 		this.moveRight();
@@ -41,12 +44,20 @@ Adventure.Enemy.prototype.update = function() {
 	}
 };
 
+
+Adventure.Enemy.prototype.hasPlatfromTile = function(x, y) {
+	var tile = this.state.o.map.getTileWorldXY(x, y, 34, 34, 'level-layer');
+	
+	if ( !tile ) { return false; }
+	return this.state.getMapIndexes().platform.indexOf(tile.index) !== -1;
+};
+
 Adventure.Enemy.prototype.hasPlatformLeft  = function() {
-	return !!this.state.o.map.getTileWorldXY(this.left - 5, this.bottom + 5, 34, 34, 'level-layer');
+	return this.hasPlatfromTile(this.left - 5, this.bottom + 5);
 };
 
 Adventure.Enemy.prototype.hasPlatformRight  = function() {
-	return !!this.state.o.map.getTileWorldXY(this.right + 5, this.bottom + 5, 34, 34, 'level-layer');
+	return this.hasPlatfromTile(this.right + 5, this.bottom + 5);
 };
 
 Adventure.Enemy.prototype.moveLeft  = function() {
