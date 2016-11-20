@@ -79,67 +79,6 @@ Adventure.Game.prototype = {
 		this.o.cursors = this.game.input.keyboard.createCursorKeys();
 	},
 	
-	updatePlatform: function() {
-		var hitPlatform = this.game.physics.arcade.collide(this.o.player, this.o.levelLayer);
-		
-		this.o.player.body.velocity.x = 0;
-		
-		if ( this.o.cursors.left.isDown ) {
-			this.o.player.body.velocity.x = -150;
-			this.o.player.animations.play('left');
-		} else if ( this.o.cursors.right.isDown ) {
-			this.o.player.body.velocity.x = 150;
-			this.o.player.animations.play('right');
-		} else {
-			this.o.player.animations.stop();
-			this.o.player.frame = 4;
-		}
-		
-		if (this.o.cursors.up.isDown && hitPlatform) {
-			this.o.player.body.velocity.y = -350;
-		}
-	},
-	
-	updateStairs: function() {
-		var overlapStairs = this.game.physics.arcade.overlap(this.o.player, this.o.stairs);
-		
-		if (overlapStairs) {
-			if (this.o.cursors.up.isDown) {
-				this.o.player.body.y -= 100;
-			}
-			if (this.o.cursors.down.isDown) {
-				[1, 1, 1, 1, 1].forEach(function(i) {
-					if ( !this.game.physics.arcade.overlap(this.o.player, this.o.platforms) ) {
-						this.o.player.body.y += 1;
-					}
-				}, this);
-			}
-			
-			if (this.o.cursors.right.isDown) {
-				this.o.player.body.x += 5;
-				this.o.player.animations.play('right');
-			}
-			
-			if (this.o.cursors.left.isDown) {
-				this.o.player.body.x -= 5;
-				this.o.player.animations.play('left');
-			}
-			
-			this.o.player.pauseGravity();
-		} else {
-			this.o.player.resumeGravity();
-		}
-	},
-	
-	updateThorns: function() {
-		var overlapThorns = this.game.physics.arcade.overlap(this.o.player, this.o.thorns);
-		
-		if (overlapThorns) {
-			console.log('die');
-		}
-	},
-	
-	
 	updateEnemies: function() {
 		this.o.enemies.forEach(function(e) { e.update(); });
 	},
@@ -149,13 +88,9 @@ Adventure.Game.prototype = {
 	},
 	
 	update: function() {
-		this.updatePlatform();
-		this.updateStairs();
-		this.updateThorns();
+		this.updateCollegues();
 		this.updateEnemies();
 		
-		if (this.input.keyboard.isDown(Phaser.Keyboard.Z)) {
-			this.o.player.fire();
-		}
+		this.o.player.update();
 	}
 };

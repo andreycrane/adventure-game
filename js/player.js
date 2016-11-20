@@ -58,7 +58,6 @@ Adventure.Player.prototype.constructor = Adventure.Player;
 
 Adventure.Player.prototype.pauseGravity = function() {
 	this.body.velocity.y = 0;
-	this.body.velocity.x = 0;
 	this.body.allowGravity = false;
 };
 
@@ -66,6 +65,19 @@ Adventure.Player.prototype.resumeGravity = function() {
 	this.body.checkCollision.up = true;
 	this.body.checkCollision.down = true;
 	this.body.allowGravity = true;
+};
+
+
+Adventure.Player.prototype.moveLeft = function() {
+	this.body.velocity.x = -150;
+	this.animations.play('left');
+	this.direction = 'left';
+};
+
+Adventure.Player.prototype.moveRight = function() {
+	this.body.velocity.x = 150;
+	this.animations.play('right');
+	this.direction = 'right';
 };
 
 Adventure.Player.prototype.fire = function() {
@@ -87,4 +99,74 @@ Adventure.Player.prototype.fire = function() {
 	bullet.reset(this.x + (this.width / 2), this.y + (this.height / 2));
 	
 	bullet.body.velocity.x = (this.direction == 'right') ? 200 : -200;
+};
+
+
+Adventure.Player.prototype.updatePlatform = function() {
+	var hitPlatform = this.state.game.physics.arcade.collide(this, this.state.o.levelLayer);
+	
+	this.body.velocity.x = 0;
+	
+	if ( this.state.o.cursors.left.isDown ) {
+		this.moveLeft();
+	} else if ( this.state.o.cursors.right.isDown ) {
+		this.moveRight();
+	} else {
+		this.animations.stop();
+		this.frame = 4;
+	}
+	
+	if (this.state.o.cursors.up.isDown && hitPlatform) {
+		this.body.velocity.y = -350;
+	}
+};
+
+
+Adventure.Player.prototype.updateStairs = function() {
+	var overlapStairs = this.state.game.physics.arcade.overlap(this, this.state.o.stairs);
+	
+	if (overlapStairs) {
+		if (this.state.o.cursors.up.isDown) {
+			this.body.y -= 5;
+		}
+		if (this.state.o.cursors.down.isDown) {
+			[1, 1, 1, 1, 1].forEach(function(i) {
+				if ( !this.state.game.physics.arcade.overlap(this, this.state.o.platforms) ) {
+					this.body.y += 1;
+				}
+			}, this);
+		}
+		
+		if (this.state.o.cursors.right.isDown) {
+			this.moveRight();
+		}
+		
+		if (this.state.o.cursors.left.isDown) {
+			this.moveLeft();
+		}
+		
+		this.pauseGravity();
+	} else {
+		this.resumeGravity();
+	}
+};
+
+Adventure.Player.prototype.updateThorns = function() {
+	var overlapThorns = this.state.game.physics.arcade.overlap(this, this.state.o.thorns);
+	
+	if (overlapThorns) {
+		console.log('die');
+	}
+};
+
+
+
+Adventure.Player.prototype.update = function() {
+	this.updatePlatform();
+	this.updateStairs();
+	this.updateThorns();
+	
+	if (this.state.input.keyboard.isDown(Phaser.Keyboard.Z)) {
+		this.fire();
+	}
 };

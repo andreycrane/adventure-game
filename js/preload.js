@@ -11,6 +11,7 @@ Adventure.Preload.prototype = {
 		this.load.image('tiles', 'assets/img/blocks.png');
 		this.load.spritesheet('dude', 'assets/img/dude.png', 32, 48);
 		this.load.image('pasha', 'assets/img/Pasha.png', 32, 48);
+		this.load.image('bullet', 'assets/img/bullet_sprite.png');
 	},
 	
 	create: function() {
