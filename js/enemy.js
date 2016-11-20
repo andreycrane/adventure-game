@@ -59,6 +59,10 @@ Adventure.Enemy.prototype.moveRight = function() {
 	this.animations.play('right');
 };
 
+Adventure.Enemy.prototype.die = function() {
+	this.kill();
+};
+
 
 Adventure.Enemy.createFromObjects = function(state) {
 	var enemies = state.game.add.group();

@@ -23,8 +23,8 @@ Adventure.Player = function(state, x, y) {
 	
 	this.body.onWorldBounds = new Phaser.Signal();
 	this.body.onWorldBounds.add(function(sprite, up, down, left, righ) {
-		if (down) state.game.state.restart();
-	});
+		if (down) this.die();
+	}, this);
 	
 	// Направление в которое смотрит игрок
 	this.direction = 'right';
@@ -101,6 +101,9 @@ Adventure.Player.prototype.fire = function() {
 	bullet.body.velocity.x = (this.direction == 'right') ? 200 : -200;
 };
 
+Adventure.Player.prototype.die = function() {
+	this.state.game.state.restart();
+};
 
 Adventure.Player.prototype.updatePlatform = function() {
 	var hitPlatform = this.state.game.physics.arcade.collide(this, this.state.o.levelLayer);
@@ -155,16 +158,41 @@ Adventure.Player.prototype.updateThorns = function() {
 	var overlapThorns = this.state.game.physics.arcade.overlap(this, this.state.o.thorns);
 	
 	if (overlapThorns) {
-		console.log('die');
+		this.die();
 	}
 };
 
+
+Adventure.Player.prototype.updateEnemies = function() {
+	// Пересечение пуль с врагами
+	this.state.game.physics.arcade.overlap(this.bulletPool, this.state.o.enemies, this.enemyHit, null, this);
+	
+	this.state.game.physics.arcade.collide(this, this.state.o.enemies, function(player, enemy) {
+		if( this.body.touching.right ||
+			this.body.touching.left ||
+			this.body.touching.top ) {
+			
+			this.die();
+		}
+		
+		if ( this.body.touching.down ) {
+			enemy.die();
+		}
+	}, null, this);
+};
+
+Adventure.Player.prototype.enemyHit = function(bullet, enemy) {
+	// убиваем пулю и врага
+	bullet.kill();
+	enemy.die();
+};
 
 
 Adventure.Player.prototype.update = function() {
 	this.updatePlatform();
 	this.updateStairs();
 	this.updateThorns();
+	this.updateEnemies();
 	
 	if (this.state.input.keyboard.isDown(Phaser.Keyboard.Z)) {
 		this.fire();
