@@ -13,7 +13,7 @@
         }, 
         {
          "draworder":"topdown",
-         "height":20,
+         "height":0,
          "name":"enemy-layer",
          "objects":[
                 {
@@ -163,23 +163,39 @@
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":40,
+         "width":0,
          "x":0,
          "y":0
         }, 
         {
          "draworder":"topdown",
-         "height":20,
+         "height":0,
          "name":"collegue-layer",
-         "objects":[],
+         "objects":[
+                {
+                 "gid":22,
+                 "height":34,
+                 "id":34,
+                 "name":"",
+                 "properties":
+                    {
+                     "congradulation":"\u041f\u0440\u0438\u0432\u0435\u0442! \u042d\u0442\u043e \u0438\u0433\u0440\u0430 \u043f\u0440\u043e \u0442\u0435\u0431\u044f!"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":34,
+                 "x":136,
+                 "y":646
+                }],
          "opacity":1,
          "type":"objectgroup",
          "visible":true,
-         "width":40,
+         "width":0,
          "x":0,
          "y":0
         }],
- "nextobjectid":34,
+ "nextobjectid":35,
  "orientation":"orthogonal",
  "properties":
     {
