@@ -71,7 +71,7 @@ Adventure.Game.prototype = {
 	
 	create: function() {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
-		this.game.stage.backgroundColor = '#338fff';
+		this.game.stage.backgroundColor = '#272e35';
 		
 		this.createMap();
 		this.createLayer();
