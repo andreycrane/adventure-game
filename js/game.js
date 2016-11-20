@@ -9,14 +9,20 @@ Adventure.Game = function() {
 };
 
 Adventure.Game.prototype = {
-	getPlatformIndexes: function() {
-		return this.o.map.properties.platform.split(',').map(i => parseInt(i));
+	getMapIndexes: function() {
+		return {
+			platform: this.o.map.properties.platform.split(',').map(i => parseInt(i)),
+			stairs: this.o.map.properties.stairs.split(',').map(i => parseInt(i)),
+			thorns: this.o.map.properties.thorns.split(',').map(i => parseInt(i)),
+			enemies: parseInt(this.o.map.properties.enemies),
+			collegues: parseInt(this.o.map.properties.collegues),
+		};
 	},
 	
 	createMap: function() {
 		this.o.map = this.game.add.tilemap('level');
 		this.o.map.addTilesetImage('blocks', 'tiles');
-		this.o.map.setCollision(this.getPlatformIndexes(), true, 'level-layer');
+		this.o.map.setCollision(this.getMapIndexes().platform, true, 'level-layer');
 	},
 	
 	createLayer: function() {
@@ -28,7 +34,7 @@ Adventure.Game.prototype = {
 		this.o.platforms = this.game.add.group();
 		this.o.platforms.enableBody = true;
 		this.o.map.createFromTiles(
-			this.getPlatformIndexes(),
+			this.getMapIndexes().platform,
 			null,
 			null,
 			'level-layer',
@@ -39,13 +45,13 @@ Adventure.Game.prototype = {
 	createStairs: function() {
 		this.o.stairs = this.game.add.group();
 		this.o.stairs.enableBody = true;
-		this.o.map.createFromTiles(82, null, null, 'level-layer', this.o.stairs);
+		this.o.map.createFromTiles(this.getMapIndexes().stairs, null, null, 'level-layer', this.o.stairs);
 	},
 	
 	createThorns: function() {
 		this.o.thorns = this.game.add.group();
 		this.o.thorns.enableBody = true;
-		this.o.map.createFromTiles(16, null, null, 'level-layer', this.o.thorns);
+		this.o.map.createFromTiles(this.getMapIndexes().thorns, null, null, 'level-layer', this.o.thorns);
 	},
 	
 	createPlayer: function() {

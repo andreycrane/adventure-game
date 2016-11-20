@@ -15,7 +15,7 @@ Adventure.Player = function(state, x, y) {
 	this.state = state;
 	
 	this.body.bounce.y = 0.2;
-	this.body.gravity.y = 500;
+	this.body.gravity.y = 300;
 	this.body.collideWorldBounds = true;
 	
 	this.animations.add('left', [0, 1, 2, 3], 10, true);

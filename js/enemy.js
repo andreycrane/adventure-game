@@ -76,7 +76,7 @@ Adventure.Enemy.createFromObjects = function(state) {
 	
 	state.o.map.createFromObjects(
 		'enemy-layer',
-		52,
+		state.getMapIndexes().enemies,
 		'dude',
 		0,
 		true,

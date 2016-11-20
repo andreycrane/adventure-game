@@ -74,7 +74,7 @@ Adventure.Collegue.createFromObjects = function(state) {
 	
 	state.o.map.createFromObjects(
 		'collegue-layer',
-		52,
+		state.getMapIndexes().collegues,
 		'dude',
 		0,
 		true,
