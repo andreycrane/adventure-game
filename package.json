@@ -1,0 +1,23 @@
+{
+  "name": "adventure-game",
+  "version": "1.0.0",
+  "description": "Adventure game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreycrane/adventure-game.git"
+  },
+  "keywords": [
+    "advenure",
+    "game"
+  ],
+  "author": "Andrey Crane",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreycrane/adventure-game/issues"
+  },
+  "homepage": "https://github.com/andreycrane/adventure-game#readme"
+}
