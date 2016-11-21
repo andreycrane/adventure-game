@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="70" height="20" tilewidth="34" tileheight="34" nextobjectid="35">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="70" height="20" tilewidth="34" tileheight="34" nextobjectid="52">
  <properties>
   <property name="collegues" value="22"/>
   <property name="enemies" value="22"/>
+  <property name="guards" value="22"/>
   <property name="platform" value="1,2,4,5,6,7,21"/>
   <property name="stairs" value="61"/>
   <property name="thorns" value="81"/>
@@ -1332,16 +1333,16 @@
    <tile gid="41"/>
    <tile gid="41"/>
    <tile gid="41"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
+   <tile gid="41"/>
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
@@ -1402,16 +1403,16 @@
    <tile gid="42"/>
    <tile gid="42"/>
    <tile gid="42"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
+   <tile gid="42"/>
   </data>
  </layer>
  <objectgroup name="enemy-layer">
@@ -1419,7 +1420,6 @@
   <object id="20" gid="22" x="918" y="238" width="34" height="34"/>
   <object id="21" gid="22" x="1768" y="306" width="34" height="34"/>
   <object id="23" gid="22" x="1428" y="136" width="34" height="34"/>
-  <object id="26" gid="22" x="2278" y="238" width="34" height="34"/>
   <object id="30" gid="22" x="816" y="102" width="34" height="34"/>
   <object id="31" gid="22" x="136" y="204" width="34" height="34"/>
   <object id="32" gid="22" x="476" y="102" width="34" height="34"/>
@@ -1431,5 +1431,9 @@
     <property name="congradulation" value="Привет! Это игра про тебя!"/>
    </properties>
   </object>
+ </objectgroup>
+ <objectgroup name="guard-layer">
+  <object id="50" gid="22" x="2244" y="238" width="34" height="34"/>
+  <object id="51" gid="22" x="238" y="646" width="34" height="34"/>
  </objectgroup>
 </map>

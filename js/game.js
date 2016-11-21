@@ -16,6 +16,7 @@ Adventure.Game.prototype = {
 			thorns: this.o.map.properties.thorns.split(',').map(i => parseInt(i)),
 			enemies: parseInt(this.o.map.properties.enemies),
 			collegues: parseInt(this.o.map.properties.collegues),
+			guards: parseInt(this.o.map.properties.guards)
 		};
 	},
 	
@@ -54,21 +55,6 @@ Adventure.Game.prototype = {
 		this.o.map.createFromTiles(this.getMapIndexes().thorns, null, null, 'level-layer', this.o.thorns);
 	},
 	
-	createPlayer: function() {
-		this.o.player = new Adventure.Player(this, 32, this.game.world.height - 150);
-	},
-	
-	
-	createEnemies: function() {
-		this.o.enemies = Adventure.Enemy.createFromObjects(this);
-	},
-	
-	
-	createColleagues: function() {
-		this.o.colleagues = Adventure.Collegue.createFromObjects(this);
-	},
-	
-	
 	create: function() {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		this.game.stage.backgroundColor = '#272e35';
@@ -78,9 +64,11 @@ Adventure.Game.prototype = {
 		this.createPlatforms();
 		this.createStairs();
 		this.createThorns();
-		this.createEnemies();
-		this.createColleagues();
-		this.createPlayer();
+		
+		this.o.enemies = Adventure.Enemy.createFromObjects(this);
+		this.o.collegues = Adventure.Collegue.createFromObjects(this);
+		this.o.guards = Adventure.Guard.createFromObjects(this);
+		this.o.player = new Adventure.Player(this, 32, this.game.world.height - 150);
 		
 		this.o.cursors = this.game.input.keyboard.createCursorKeys();
 	},
@@ -90,12 +78,17 @@ Adventure.Game.prototype = {
 	},
 	
 	updateCollegues: function() {
-		this.o.colleagues.forEach(function(c) { c.update(); });
+		this.o.collegues.forEach(function(c) { c.update(); });
+	},
+	
+	updateGuards: function() {
+		this.o.guards.forEach(function(g) { g.update(); });
 	},
 	
 	update: function() {
 		this.updateCollegues();
 		this.updateEnemies();
+		this.updateGuards();
 		
 		this.o.player.update();
 	}
