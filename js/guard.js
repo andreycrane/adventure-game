@@ -58,6 +58,8 @@ Adventure.Guard.prototype.update = function() {
 		
 		if (  livingEnemies > 0 || livingCollegues > 0) {
 			this.showText('Ты собрал не всех коллег и не уничтожил врагов! Я не могу тебя пропустить... :(');
+		} else {
+			this.showText('Ну что, полетели дальше? :)');
 		}
 	} else {
 		this.hideText();

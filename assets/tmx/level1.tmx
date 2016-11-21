@@ -1434,6 +1434,5 @@
  </objectgroup>
  <objectgroup name="guard-layer">
   <object id="50" gid="22" x="2244" y="238" width="34" height="34"/>
-  <object id="51" gid="22" x="238" y="646" width="34" height="34"/>
  </objectgroup>
 </map>
