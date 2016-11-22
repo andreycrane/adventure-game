@@ -9,6 +9,8 @@ Adventure.Game = function() {
 };
 
 Adventure.Game.prototype = {
+	init: function() {},
+	
 	getMapIndexes: function() {
 		return {
 			platform: this.o.map.properties.platform.split(',').map(i => parseInt(i)),
