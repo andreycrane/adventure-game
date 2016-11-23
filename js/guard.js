@@ -56,13 +56,21 @@ Adventure.Guard.prototype.update = function() {
 		livingEnemies = this.state.o.enemies.countLiving();
 		livingCollegues = this.state.o.collegues.countLiving();
 		
-		if (  livingEnemies > 0 || livingCollegues > 0) {
+		if (livingEnemies > 0 || livingCollegues > 0) {
 			this.showText('Ты собрал не всех коллег и не уничтожил врагов! Я не могу тебя пропустить... :(');
 		} else {
-			this.showText('Ну что, полетели дальше? :)');
+			this.moveNext();
 		}
 	} else {
 		this.hideText();
+	}
+};
+
+Adventure.Guard.prototype.moveNext = function() {
+	this.showText('Ну что, полетели дальше? :)');
+	
+	if (this.state.o.level < (Adventure.maps.length - 1)) {
+		this.state.game.state.start('middleState', true, false, this.state.o.level + 1);
 	}
 };
 

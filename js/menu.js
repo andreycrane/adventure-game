@@ -35,7 +35,7 @@ Adventure.Menu.prototype = {
 	
 	update: function() {
 		if (this.input.keyboard.isDown(Phaser.Keyboard.Z)) {
-			this.game.state.start('game');
+			this.game.state.start('middleState', true, false, 0);
 		}
 	}
 };

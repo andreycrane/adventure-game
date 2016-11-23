@@ -102,7 +102,7 @@ Adventure.Player.prototype.fire = function() {
 };
 
 Adventure.Player.prototype.die = function() {
-	this.state.game.state.restart();
+	this.state.game.state.restart(true, false, this.state.o.level);
 };
 
 Adventure.Player.prototype.updatePlatform = function() {

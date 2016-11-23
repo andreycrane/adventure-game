@@ -9,7 +9,9 @@ Adventure.Game = function() {
 };
 
 Adventure.Game.prototype = {
-	init: function() {},
+	init: function(level) {
+		this.o.level = level;
+	},
 	
 	getMapIndexes: function() {
 		return {
@@ -23,8 +25,10 @@ Adventure.Game.prototype = {
 	},
 	
 	createMap: function() {
-		this.o.map = this.game.add.tilemap('level');
-		this.o.map.addTilesetImage('blocks', 'tiles');
+		var mapData = Adventure.maps[this.o.level];
+		
+		this.o.map = this.game.add.tilemap(mapData.json.cacheName);
+		this.o.map.addTilesetImage(mapData.tileset.name, mapData.tileset.cacheName);
 		this.o.map.setCollision(this.getMapIndexes().platform, true, 'level-layer');
 	},
 	

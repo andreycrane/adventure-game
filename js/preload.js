@@ -5,6 +5,36 @@ var Adventure = Adventure || {};
 
 Adventure.Preload = function() {};
 
+Adventure.maps = [
+	{
+		name: 'Stage 1. Moscow',
+		
+		json: {
+			cacheName: 'level1',
+			path: 'assets/tilemap/level1.json'
+		},
+		tileset: {
+			cacheName: 'tileset1',
+			name: 'blocks',
+			path: 'assets/img/blocks1.png'
+		}
+	},
+	{
+		name: 'Stage 2. Piter',
+		
+		json: {
+			cacheName: 'level2',
+			path: 'assets/tilemap/level2.json'
+		},
+		tileset: {
+			cacheName: 'tiles2',
+			name: 'blocks',
+			path: 'assets/img/blocks1.png'
+		}
+	}
+];
+
+
 Adventure.Preload.prototype = {
 	preload: function() {
 		var me = this;
@@ -15,12 +45,18 @@ Adventure.Preload.prototype = {
 			},
 			
 			google: {
-				families: ['Bungee Inline', 'Aldrich']
+				families: ['Bungee Inline', 'Aldrich', 'Press Start 2P']
 			}
 		};
 		
-		this.load.tilemap('level', 'assets/tilemap/level1.json', null, Phaser.Tilemap.TILED_JSON);
-		this.load.image('tiles', 'assets/img/blocks1.png');
+		
+		// Загрузка данных карт
+		Adventure.maps.forEach(function(m) {
+			this.load.tilemap(m.json.cacheName, m.json.path, null, Phaser.Tilemap.TILED_JSON);
+			this.load.image(m.tileset.cacheName, m.tileset.path);
+		}, this);
+		
+		
 		this.load.spritesheet('dude', 'assets/img/dude.png', 32, 48);
 		this.load.image('pasha', 'assets/img/Pasha.png', 32, 48);
 		this.load.image('bullet', 'assets/img/bullet_sprite.png');
