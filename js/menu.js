@@ -31,11 +31,26 @@ Adventure.Menu.prototype = {
 			}
 		);
 		this.text.anchor.set(0.5, 0.5);
+		
+		this.captions = this.game.add.text(
+			this.game.world.centerX,
+			this.game.world.centerY + 30,
+			'Press "Space" to view captions',
+			{
+				font: '15px Aldrich',
+				fill: 'white'
+			}
+		);
+		this.captions.anchor.set(0.5, 0.5);
 	},
 	
 	update: function() {
 		if (this.input.keyboard.isDown(Phaser.Keyboard.Z)) {
 			this.game.state.start('middleState', true, false, 0);
+		}
+		
+		if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+			this.game.state.start('captions', true, false);
 		}
 	}
 };

@@ -71,6 +71,8 @@ Adventure.Guard.prototype.moveNext = function() {
 	
 	if (this.state.o.level < (Adventure.maps.length - 1)) {
 		this.state.game.state.start('middleState', true, false, this.state.o.level + 1);
+	} else {
+		this.state.game.state.start('captions', true, false);
 	}
 };
 
