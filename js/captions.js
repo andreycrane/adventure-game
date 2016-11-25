@@ -6,6 +6,11 @@ var Adventure = Adventure || {};
 Adventure.Captions = function() {};
 
 Adventure.Captions.prototype = {
+	init: function(level, timeout) {
+		this.game.world.resize(800, 600);
+		this.game.world.setBounds(0, 0, 800, 600);
+	},
+	
 	create: function() {
 		this.game.stage.backgroundColor = '#272e35';
 		

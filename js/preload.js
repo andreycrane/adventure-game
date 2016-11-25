@@ -45,7 +45,7 @@ Adventure.Preload.prototype = {
 			},
 			
 			google: {
-				families: ['Bungee Inline', 'Aldrich', 'Press Start 2P']
+				families: ['Bungee Inline', 'Aldrich', 'Press Start 2P::cyrillic']
 			}
 		};
 		
