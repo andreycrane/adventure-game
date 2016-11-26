@@ -211,7 +211,8 @@
  "orientation":"orthogonal",
  "properties":
     {
-     "collegues":"22",
+     "colleguesMan":"22",
+     "colleguesWoman":"23",
      "enemies":"22",
      "guards":"22",
      "platform":"1,2,4,5,6,7,21",

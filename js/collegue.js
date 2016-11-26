@@ -16,9 +16,6 @@ Adventure.Collegue = function(state, x, y, key) {
 	this.body.bounce.y = 0.2;
 	this.body.gravity.y = 500;
 	this.body.collideWorldBounds = true;
-	
-	this.tint = 0xf2d109;
-	
 };
 
 Adventure.Collegue.prototype = Object.create(Phaser.Sprite.prototype);
@@ -47,7 +44,7 @@ Adventure.Collegue.createFromObjects = function(state) {
 	var collegues = state.game.add.group();
 	
 	var t = function(game, x, y, key) {
-		Adventure.Collegue.call(this, state, x, y);
+		Adventure.Collegue.call(this, state, x, y, key);
 	};
 	
 	t.prototype = Object.create(Adventure.Collegue.prototype);
@@ -66,7 +63,7 @@ Adventure.Collegue.createFromObjects = function(state) {
 	
 	state.o.map.createFromObjects(
 		'collegue-layer',
-		state.getMapIndexes().colleguesMan,
+		state.getMapIndexes().colleguesWoman,
 		'woman-set',
 		0,
 		true,
@@ -74,5 +71,6 @@ Adventure.Collegue.createFromObjects = function(state) {
 		collegues,
 		t
 	);
+	
 	return collegues;
 };
