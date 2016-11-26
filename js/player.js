@@ -5,7 +5,7 @@
 var Adventure = Adventure || {};
 
 Adventure.Player = function(state, x, y) {
-	Phaser.Sprite.call(this, state.game, x, y, 'dude');
+	Phaser.Sprite.call(this, state.game, x, y, 'hero', 6);
 	
 	state.game.add.existing(this);
 	state.game.physics.arcade.enable(this);
@@ -18,8 +18,11 @@ Adventure.Player = function(state, x, y) {
 	this.body.gravity.y = 300;
 	this.body.collideWorldBounds = true;
 	
-	this.animations.add('left', [0, 1, 2, 3], 10, true);
-	this.animations.add('right', [5, 6, 7, 8], 10, true);
+	this.animations.add('left', [2, 3, 4, 5], 10, true);
+	this.animations.add('right', [7, 8, 9,10], 10, true);
+	
+	this.animations.add('codeLeft', [0, 1], 10, true);
+	this.animations.add('codeRight', [11, 12], 10, true);
 	
 	this.body.onWorldBounds = new Phaser.Signal();
 	this.body.onWorldBounds.add(function(sprite, up, down, left, righ) {
@@ -116,7 +119,7 @@ Adventure.Player.prototype.updatePlatform = function() {
 		this.moveRight();
 	} else {
 		this.animations.stop();
-		this.frame = 4;
+		this.frame = 6;
 	}
 	
 	if (this.state.o.cursors.up.isDown && hitPlatform) {
@@ -194,7 +197,11 @@ Adventure.Player.prototype.update = function() {
 	this.updateThorns();
 	this.updateEnemies();
 	
-	if (this.state.input.keyboard.isDown(Phaser.Keyboard.Z)) {
+	if (this.state.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 		this.fire();
+	}
+	
+	if ( !this.animations.currentAnim ) {
+		this.frame = 6;
 	}
 };

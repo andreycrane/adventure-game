@@ -1,5 +1,6 @@
 'use strict';
 
+/* globals Phaser */
 var Adventure = Adventure || {};
 
 Adventure.SpeechBubble = function(state, x, y, text) {
@@ -64,5 +65,20 @@ Adventure.SpeechBubble = function(state, x, y, text) {
 	this.graphics.endFill();
 	
 	this.text.setTextBounds((x - Math.abs(xLeft)) + 4, (y - Math.abs(yTop)) + 3);
+	
 	state.game.add.existing(this.text);
+	
+	this.speechTween = state.game.add.tween(this.graphics).to({ alpha: 0 }, 5000, Phaser.Easing.Linear.None);
+	this.textTween = state.game.add.tween(this.text).to({ alpha: 0 }, 5000, Phaser.Easing.Linear.None);
+};
+
+Adventure.SpeechBubble.prototype.hideText = function(cb) {
+	if ( cb) {
+		this.speechTween.onComplete.add(cb);
+	}
+	
+	this.speechTween.start();
+	this.textTween.start();
+	
+	
 };

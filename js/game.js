@@ -65,6 +65,9 @@ Adventure.Game.prototype = {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		this.game.stage.backgroundColor = '#272e35';
 		
+		this.piter_back = this.game.add.image(0, 0, 'piter_back');
+		this.piter_back.fixedToCamera = true;
+		
 		this.createMap();
 		this.createLayer();
 		this.createPlatforms();

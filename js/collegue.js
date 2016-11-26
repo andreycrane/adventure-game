@@ -19,21 +19,6 @@ Adventure.Collegue = function(state, x, y) {
 	
 	this.tint = 0xf2d109;
 	
-	var style = {
-		font: "10px Arial",
-		fill: "#000000",
-		wordWrap: true,
-		wordWrapWidth: 60,
-		align: "center",
-		backgroundColor: "#ffffff" };
-	
-	this.text = state.game.add.text(this.right, this.top, '', style);
-	this.text.alpha = 0;
-	this.text.anchor.set(0.5);
-	this.text.y -= this.text.height;
-	
-	this.tween = this.state.game.add.tween(this.text).from({ alpha: 1 }).to({ alpha: 0 }, 5000, 'Linear');
-	this.tween.onComplete.add(this.kill, this);
 };
 
 Adventure.Collegue.prototype = Object.create(Phaser.Sprite.prototype);
@@ -50,11 +35,11 @@ Adventure.Collegue.prototype.update = function() {
 
 
 Adventure.Collegue.prototype.showText = function() {
-	this.text.setText(this.congradulation);
-	this.text.alpha = 1;
+	var me = this;
 	
-	if ( !this.tween.isRunning ) {
-		this.tween.start();
+	if ( !this.t ) {
+		this.t = new Adventure.SpeechBubble(this.state, this.left, this.top, this.congradulation);
+		this.t.hideText(function() { me.kill(); });
 	}
 };
 

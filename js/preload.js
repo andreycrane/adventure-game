@@ -58,14 +58,17 @@ Adventure.Preload.prototype = {
 		
 		
 		this.load.spritesheet('dude', 'assets/img/dude.png', 32, 48);
+		this.load.spritesheet('hero', 'assets/img/hero-set.png', 34, 68);
 		this.load.image('pasha', 'assets/img/Pasha.png', 32, 48);
 		this.load.image('bullet', 'assets/img/bullet_sprite.png');
 		this.load.image('decor', 'assets/img/decor.png');
+		this.load.image('piter_back', 'assets/img/piter_back.png');
 		this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 	},
 	
 	create: function() {
 		this.game.stage.backgroundColor = '#272e35';
+		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 		
 		this.title = this.game.add.text(
 			this.game.world.centerX,
