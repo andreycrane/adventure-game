@@ -200,8 +200,4 @@ Adventure.Player.prototype.update = function() {
 	if (this.state.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 		this.fire();
 	}
-	
-	if ( !this.animations.currentAnim ) {
-		this.frame = 6;
-	}
 };

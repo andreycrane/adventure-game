@@ -4,6 +4,8 @@
 var Adventure = Adventure || {};
 
 Adventure.Enemy = function(state, x, y) {
+	var me = this;
+	
 	Phaser.Sprite.call(this, state.game, x, y, 'dude');
 	
 	state.game.add.existing(this);
@@ -22,6 +24,9 @@ Adventure.Enemy = function(state, x, y) {
 	this.tint = 0xC85054
 	
 	this.moveRight();
+	
+	this.dieTween = state.game.add.tween(this).to({ y: 2000 }, 2000, Phaser.Easing.Linear.None);
+	this.dieTween.onComplete.add(function() { me.kill(); });
 };
 
 Adventure.Enemy.prototype = Object.create(Phaser.Sprite.prototype);
@@ -71,7 +76,9 @@ Adventure.Enemy.prototype.moveRight = function() {
 };
 
 Adventure.Enemy.prototype.die = function() {
-	this.kill();
+	if ( !this.dieTween.isRunning ) {
+		this.dieTween.start();
+	}
 };
 
 
