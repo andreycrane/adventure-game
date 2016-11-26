@@ -5,7 +5,7 @@
 var Adventure = Adventure || {};
 
 Adventure.Collegue = function(state, x, y, key) {
-	Phaser.Sprite.call(this, state.game, x, y, key);
+	Phaser.Sprite.call(this, state.game, x, y, key, 3);
 	
 	state.game.add.existing(this);
 	state.game.physics.arcade.enable(this);
@@ -16,6 +16,9 @@ Adventure.Collegue = function(state, x, y, key) {
 	this.body.bounce.y = 0.2;
 	this.body.gravity.y = 500;
 	this.body.collideWorldBounds = true;
+	
+	this.animations.add('talk_left', [0, 1, 2], 10, true);
+	this.animations.add('talk_right', [4, 5, 6], 10, true);
 	
 	this.t = new Adventure.SpeechBubble(this.state);
 };
@@ -28,6 +31,13 @@ Adventure.Collegue.prototype.update = function() {
 	this.state.game.physics.arcade.collide(this, this.state.o.levelLayer);
 	
 	if (this.state.game.physics.arcade.overlap(this, this.state.o.player)) {
+		
+		if ( (this.left - this.state.o.player.left) > 0 ) {
+			this.animations.play('talk_left');
+		} else {
+			this.animations.play('talk_right');
+		}
+		
 		this.showText();
 	}
 };
