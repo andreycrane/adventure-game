@@ -16,6 +16,8 @@ Adventure.Collegue = function(state, x, y, key) {
 	this.body.bounce.y = 0.2;
 	this.body.gravity.y = 500;
 	this.body.collideWorldBounds = true;
+	
+	this.t = new Adventure.SpeechBubble(this.state);
 };
 
 Adventure.Collegue.prototype = Object.create(Phaser.Sprite.prototype);
@@ -34,9 +36,9 @@ Adventure.Collegue.prototype.update = function() {
 Adventure.Collegue.prototype.showText = function() {
 	var me = this;
 	
-	if ( !this.t ) {
-		this.t = new Adventure.SpeechBubble(this.state, this.left, this.top, this.congradulation);
-		this.t.hideText(function() { me.kill(); });
+	if ( !this.t.shown ) {
+		this.t.showText(me.congradulation, this.left, this.top);
+		this.t.hideTextTween(function() { me.kill(); });
 	}
 };
 

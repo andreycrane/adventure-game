@@ -16,33 +16,20 @@ Adventure.Guard = function(state, x, y) {
 	this.body.gravity.y = 900;
 	this.body.collideWorldBounds = true;
 	
-	this.tint = 0x153f10;
-	
-	var style = {
-		font: "10px Arial",
-		fill: "#000000",
-		wordWrap: true,
-		wordWrapWidth: 60,
-		align: "center",
-		backgroundColor: "#ffffff" };
-	
-	this.text = state.game.add.text(this.right, this.top, "- text on a sprite -\ndrag me", style);
-	this.text.anchor.set(0.5);
-	this.text.y -= this.text.height;
-	
-	this.hideText();
+	this.t = new Adventure.SpeechBubble(this.state);
 };
 
 Adventure.Guard.prototype = Object.create(Phaser.Sprite.prototype);
 Adventure.Guard.prototype.constructor = Adventure.Guard;
 
 Adventure.Guard.prototype.showText = function(text) {
-	this.text.setText(text || '');
-	this.text.alpha = 1;
+	if ( !this.t.shown ) {
+		this.t.showText(text, this.left, this.top);
+	}
 };
 
 Adventure.Guard.prototype.hideText = function() {
-	this.text.alpha = 0;
+	this.t.hideText();
 };
 
 Adventure.Guard.prototype.update = function() {
@@ -67,13 +54,17 @@ Adventure.Guard.prototype.update = function() {
 };
 
 Adventure.Guard.prototype.moveNext = function() {
+	var me = this;
+	
 	this.showText('Ну что, полетели дальше? :)');
 	
-	if (this.state.o.level < (Adventure.maps.length - 1)) {
-		this.state.game.state.start('middleState', true, false, this.state.o.level + 1);
-	} else {
-		this.state.game.state.start('captions', true, false);
-	}
+	this.hideTextTween(function() {
+		if (me.state.o.level < (Adventure.maps.length - 1)) {
+			me.state.game.state.start('middleState', true, false, me.state.o.level + 1);
+		} else {
+			me.state.game.state.start('captions', true, false);
+		}
+	});
 };
 
 Adventure.Guard.createFromObjects = function(state) {
