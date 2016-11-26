@@ -4,8 +4,8 @@
 
 var Adventure = Adventure || {};
 
-Adventure.Collegue = function(state, x, y) {
-	Phaser.Sprite.call(this, state.game, x, y, 'dude');
+Adventure.Collegue = function(state, x, y, key) {
+	Phaser.Sprite.call(this, state.game, x, y, key);
 	
 	state.game.add.existing(this);
 	state.game.physics.arcade.enable(this);
@@ -46,7 +46,7 @@ Adventure.Collegue.prototype.showText = function() {
 Adventure.Collegue.createFromObjects = function(state) {
 	var collegues = state.game.add.group();
 	
-	var t = function(game, x, y) {
+	var t = function(game, x, y, key) {
 		Adventure.Collegue.call(this, state, x, y);
 	};
 	
@@ -55,8 +55,8 @@ Adventure.Collegue.createFromObjects = function(state) {
 	
 	state.o.map.createFromObjects(
 		'collegue-layer',
-		state.getMapIndexes().collegues,
-		'dude',
+		state.getMapIndexes().colleguesMan,
+		'man-set',
 		0,
 		true,
 		false,
@@ -64,5 +64,15 @@ Adventure.Collegue.createFromObjects = function(state) {
 		t
 	);
 	
+	state.o.map.createFromObjects(
+		'collegue-layer',
+		state.getMapIndexes().colleguesMan,
+		'woman-set',
+		0,
+		true,
+		false,
+		collegues,
+		t
+	);
 	return collegues;
 };

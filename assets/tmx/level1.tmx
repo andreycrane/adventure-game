@@ -8,7 +8,7 @@
   <property name="stairs" value="61"/>
   <property name="thorns" value="81"/>
  </properties>
- <tileset firstgid="1" name="blocks" tilewidth="34" tileheight="34" tilecount="400">
+ <tileset firstgid="1" name="blocks" tilewidth="34" tileheight="34" tilecount="400" columns="20">
   <image source="../img/blocks1.png" width="680" height="680"/>
  </tileset>
  <layer name="level-layer" width="120" height="20">
@@ -2415,6 +2415,13 @@
    <tile gid="21"/>
   </data>
  </layer>
+ <objectgroup name="collegue-layer">
+  <object id="34" gid="22" x="136" y="646" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="Привет! Это игра про тебя!"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="enemy-layer">
   <object id="16" gid="22" x="1122" y="544" width="34" height="34"/>
   <object id="20" gid="22" x="918" y="238" width="34" height="34"/>
@@ -2424,13 +2431,6 @@
   <object id="31" gid="22" x="136" y="204" width="34" height="34"/>
   <object id="32" gid="22" x="476" y="102" width="34" height="34"/>
   <object id="33" gid="22" x="408" y="544" width="34" height="34"/>
- </objectgroup>
- <objectgroup name="collegue-layer">
-  <object id="34" gid="22" x="136" y="646" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="Привет! Это игра про тебя!"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup name="guard-layer">
   <object id="52" gid="22" x="4012" y="544" width="34" height="34"/>

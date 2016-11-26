@@ -19,7 +19,8 @@ Adventure.Game.prototype = {
 			stairs: this.o.map.properties.stairs.split(',').map(i => parseInt(i)),
 			thorns: this.o.map.properties.thorns.split(',').map(i => parseInt(i)),
 			enemies: parseInt(this.o.map.properties.enemies),
-			collegues: parseInt(this.o.map.properties.collegues),
+			colleguesMan: parseInt(this.o.map.properties.colleguesMan),
+			colleguesWoman: parseInt(this.o.map.properties.colleguesWoman),
 			guards: parseInt(this.o.map.properties.guards)
 		};
 	},
