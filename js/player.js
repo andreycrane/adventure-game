@@ -20,9 +20,7 @@ Adventure.Player = function(state, x, y) {
 	
 	this.animations.add('left', [2, 3, 4, 5], 10, true);
 	this.animations.add('right', [7, 8, 9,10], 10, true);
-	
-	this.animations.add('codeLeft', [0, 1], 10, true);
-	this.animations.add('codeRight', [11, 12], 10, true);
+	this.animations.add('coding', [0, 1, 11, 12], 10, true);
 	
 	this.body.onWorldBounds = new Phaser.Signal();
 	this.body.onWorldBounds.add(function(sprite, up, down, left, righ) {
@@ -31,6 +29,9 @@ Adventure.Player = function(state, x, y) {
 	
 	// Направление в которое смотрит игрок
 	this.direction = 'right';
+	
+	// время начала бездействия
+	this.stopTime = state.game.time.now;
 	
 	// Создаем пустую группу спрайтов для пуль
 	this.bulletPool = state.game.add.group();
@@ -75,12 +76,16 @@ Adventure.Player.prototype.moveLeft = function() {
 	this.body.velocity.x = -150;
 	this.animations.play('left');
 	this.direction = 'left';
+	// время начала бездействия
+	this.stopTime = this.state.game.time.now;
 };
 
 Adventure.Player.prototype.moveRight = function() {
 	this.body.velocity.x = 150;
 	this.animations.play('right');
 	this.direction = 'right';
+	// время начала бездействия
+	this.stopTime = this.state.game.time.now;
 };
 
 Adventure.Player.prototype.fire = function() {
@@ -102,6 +107,9 @@ Adventure.Player.prototype.fire = function() {
 	bullet.reset(this.x + (this.width / 2), this.y + (this.height / 2));
 	
 	bullet.body.velocity.x = (this.direction == 'right') ? 200 : -200;
+	
+	// время начала бездействия
+	this.stopTime = this.state.game.time.now;
 };
 
 Adventure.Player.prototype.die = function() {
@@ -118,8 +126,12 @@ Adventure.Player.prototype.updatePlatform = function() {
 	} else if ( this.state.o.cursors.right.isDown ) {
 		this.moveRight();
 	} else {
-		this.animations.stop();
-		this.frame = 6;
+		if (this.state.game.time.now - this.stopTime > 4000) {
+			this.animations.play('coding');
+		} else {
+			this.animations.stop();
+			this.frame = 6;
+		}
 	}
 	
 	if (this.state.o.cursors.up.isDown && hitPlatform) {
@@ -134,8 +146,13 @@ Adventure.Player.prototype.updateStairs = function() {
 	if (overlapStairs) {
 		if (this.state.o.cursors.up.isDown) {
 			this.body.y -= 5;
+			// время начала бездействия
+			this.stopTime = this.state.game.time.now;
 		}
 		if (this.state.o.cursors.down.isDown) {
+			// время начала бездействия
+			this.stopTime = this.state.game.time.now;
+			
 			[1, 1, 1, 1, 1].forEach(function(i) {
 				if ( !this.state.game.physics.arcade.overlap(this, this.state.o.platforms) ) {
 					this.body.y += 1;
@@ -200,4 +217,5 @@ Adventure.Player.prototype.update = function() {
 	if (this.state.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 		this.fire();
 	}
+	
 };
