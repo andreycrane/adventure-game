@@ -17,6 +17,18 @@ Adventure.maps = [
 			cacheName: 'tileset1',
 			name: 'blocks',
 			path: 'assets/img/blocks1.png'
+		},
+		bg:  {
+			cacheName: 'bg1',
+			path: 'assets/img/moscow/bg.png'
+		},
+		mob: {
+			cacheName: 'mob1',
+			path: 'assets/img/mob1-set.png'
+		},
+		guard: {
+			cacheName: 'guard1',
+			path: 'assets/img/pasha-set.png'
 		}
 	},
 	{
@@ -30,6 +42,18 @@ Adventure.maps = [
 			cacheName: 'tiles2',
 			name: 'blocks',
 			path: 'assets/img/blocks1.png'
+		},
+		bg:  {
+			cacheName: 'bg2',
+			path: 'assets/img/piter/bg.png'
+		},
+		mob: {
+			cacheName: 'mob2',
+			path: 'assets/img/mob2-set.png'
+		},
+		guard: {
+			cacheName: 'guard1',
+			path: 'assets/img/pasha-set.png'
 		}
 	}
 ];
@@ -54,6 +78,9 @@ Adventure.Preload.prototype = {
 		Adventure.maps.forEach(function(m) {
 			this.load.tilemap(m.json.cacheName, m.json.path, null, Phaser.Tilemap.TILED_JSON);
 			this.load.image(m.tileset.cacheName, m.tileset.path);
+			this.load.image(m.bg.cacheName, m.bg.path);
+			this.load.spritesheet(m.mob.cacheName, m.mob.path, 34, 67);
+			this.load.spritesheet(m.guard.cacheName, m.guard.path, 34, 67);
 		}, this);
 		
 		

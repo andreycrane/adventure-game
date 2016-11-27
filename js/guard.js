@@ -3,8 +3,8 @@
 /* globals Phaser */
 var Adventure = Adventure || {};
 
-Adventure.Guard = function(state, x, y) {
-	Phaser.Sprite.call(this, state.game, x, y, 'dude');
+Adventure.Guard = function(state, x, y, key) {
+	Phaser.Sprite.call(this, state.game, x, y, key, 3);
 	
 	state.game.add.existing(this);
 	state.game.physics.arcade.enable(this);
@@ -15,6 +15,9 @@ Adventure.Guard = function(state, x, y) {
 	this.body.bounce.y = 0.2;
 	this.body.gravity.y = 900;
 	this.body.collideWorldBounds = true;
+	
+	this.animations.add('talk_left', [0, 1, 2], 10, true);
+	this.animations.add('talk_right', [4, 5, 6], 10, true);
 	
 	this.t = new Adventure.SpeechBubble(this.state);
 };
@@ -43,6 +46,12 @@ Adventure.Guard.prototype.update = function() {
 		livingEnemies = this.state.o.enemies.countLiving();
 		livingCollegues = this.state.o.collegues.countLiving();
 		
+		if ( (this.left - this.state.o.player.left) > 0 ) {
+			this.animations.play('talk_left');
+		} else {
+			this.animations.play('talk_right');
+		}
+		
 		if (livingEnemies > 0 || livingCollegues > 0) {
 			this.showText('Ты собрал не всех коллег и не уничтожил врагов! Я не могу тебя пропустить... :(');
 		} else {
@@ -68,10 +77,12 @@ Adventure.Guard.prototype.moveNext = function() {
 };
 
 Adventure.Guard.createFromObjects = function(state) {
-	var guards = state.game.add.group();
+	var
+		guards = state.game.add.group(),
+		mapData = Adventure.maps[state.o.level];
 	
-	var t = function(game, x, y) {
-		Adventure.Guard.call(this, state, x, y);
+	var t = function(game, x, y, key) {
+		Adventure.Guard.call(this, state, x, y, key);
 	};
 	
 	t.prototype = Object.create(Adventure.Guard.prototype);
@@ -80,7 +91,7 @@ Adventure.Guard.createFromObjects = function(state) {
 	state.o.map.createFromObjects(
 		'guard-layer',
 		state.getMapIndexes().guards,
-		'dude',
+		mapData.guard.cacheName,
 		0,
 		true,
 		false,

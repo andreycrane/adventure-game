@@ -3,10 +3,10 @@
 /* globals Phaser */
 var Adventure = Adventure || {};
 
-Adventure.Enemy = function(state, x, y) {
+Adventure.Enemy = function(state, x, y, key) {
 	var me = this;
 	
-	Phaser.Sprite.call(this, state.game, x, y, 'dude');
+	Phaser.Sprite.call(this, state.game, x, y, key);
 	
 	state.game.add.existing(this);
 	state.game.physics.arcade.enable(this);
@@ -20,8 +20,6 @@ Adventure.Enemy = function(state, x, y) {
 	
 	this.animations.add('left', [0, 1, 2, 3], 10, true);
 	this.animations.add('right', [5, 6, 7, 8], 10, true);
-	
-	this.tint = 0xC85054
 	
 	this.moveRight();
 	
@@ -83,10 +81,12 @@ Adventure.Enemy.prototype.die = function() {
 
 
 Adventure.Enemy.createFromObjects = function(state) {
-	var enemies = state.game.add.group();
+	var
+		enemies = state.game.add.group(),
+		mapData = Adventure.maps[state.o.level];
 	
-	var t = function(game, x, y) {
-		Adventure.Enemy.call(this, state, x, y);
+	var t = function(game, x, y, key) {
+		Adventure.Enemy.call(this, state, x, y, key);
 	};
 	
 	t.prototype = Object.create(Adventure.Enemy.prototype);
@@ -95,7 +95,7 @@ Adventure.Enemy.createFromObjects = function(state) {
 	state.o.map.createFromObjects(
 		'enemy-layer',
 		state.getMapIndexes().enemies,
-		'dude',
+		mapData.mob.cacheName,
 		0,
 		true,
 		false,

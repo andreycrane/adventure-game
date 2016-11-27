@@ -27,7 +27,9 @@ Adventure.Game.prototype = {
 	
 	
 	createBack: function() {
-		this.piter_back = this.game.add.image(0, 0, 'piter_back');
+		var mapData = Adventure.maps[this.o.level];
+		
+		this.piter_back = this.game.add.image(0, 0, mapData.bg.cacheName);
 		this.piter_back.fixedToCamera = true;
 	},
 	
