@@ -45,7 +45,7 @@ Adventure.Preload.prototype = {
 			},
 			
 			google: {
-				families: ['Bungee Inline', 'Aldrich', 'Press Start 2P::cyrillic']
+				families: ['Press Start 2P::cyrillic', 'Bungee Inline', 'Aldrich']
 			}
 		};
 		
@@ -63,10 +63,11 @@ Adventure.Preload.prototype = {
 		this.load.spritesheet('woman-set', 'assets/img/woman-set.png', 34, 68);
 		
 		this.load.image('pasha', 'assets/img/Pasha.png', 32, 48);
-		
 		this.load.image('bullet', 'assets/img/bullet_sprite.png');
 		this.load.image('decor', 'assets/img/decor.png');
 		this.load.image('piter_back', 'assets/img/piter_back.png');
+		
+		this.load.audio('track1', ['assets/music/track1.mp3']);
 		
 		this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 	},

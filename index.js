@@ -40,7 +40,7 @@ http.createServer((req, res) => {
 		if (error) {
 			if(error.code == 'ENOENT'){
 				fs.readFile('./404.html', (error, content) => {
-					res.writeHead(200, { 'Content-Type': contentType });
+					res.writeHead(200, { 'Content-Type': `${contentType}; charset=utf-8` });
 					res.end(content, 'utf-8');
 				});
 			} else {
@@ -49,7 +49,7 @@ http.createServer((req, res) => {
 				res.end(); 
 			}
 		} else {
-			res.writeHead(200, { 'Content-Type': contentType });
+			res.writeHead(200, { 'Content-Type': `${contentType}; charset=utf-8` });
 			res.end(content, 'utf-8');
 		}
 	});

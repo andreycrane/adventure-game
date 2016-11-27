@@ -25,6 +25,13 @@ Adventure.Game.prototype = {
 		};
 	},
 	
+	
+	createBack: function() {
+		this.piter_back = this.game.add.image(0, 0, 'piter_back');
+		this.piter_back.fixedToCamera = true;
+	},
+	
+	
 	createMap: function() {
 		var mapData = Adventure.maps[this.o.level];
 		
@@ -62,13 +69,15 @@ Adventure.Game.prototype = {
 		this.o.map.createFromTiles(this.getMapIndexes().thorns, null, null, 'level-layer', this.o.thorns);
 	},
 	
+	createPause: function() {
+		var gameMenu = new Adventure.GameMenu(this);
+	},
+	
 	create: function() {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		this.game.stage.backgroundColor = '#272e35';
 		
-		this.piter_back = this.game.add.image(0, 0, 'piter_back');
-		this.piter_back.fixedToCamera = true;
-		
+		this.createBack();
 		this.createMap();
 		this.createLayer();
 		this.createPlatforms();
@@ -81,7 +90,10 @@ Adventure.Game.prototype = {
 		this.o.player = new Adventure.Player(this, 32, this.game.world.height - 150);
 		
 		this.o.cursors = this.game.input.keyboard.createCursorKeys();
+		
+		this.createPause();
 	},
+	
 	
 	updateEnemies: function() {
 		this.o.enemies.forEach(function(e) { e.update(); });
