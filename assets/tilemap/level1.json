@@ -423,11 +423,13 @@
                  "name":"",
                  "properties":
                     {
-                     "congradulation":"\u0412\u0441\u0442\u0443\u043f\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0440\u0435\u0447\u044c"
+                     "congradulation":"\u0412\u0441\u0442\u0443\u043f\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0440\u0435\u0447\u044c",
+                     "texture":"ira-set"
                     },
                  "propertytypes":
                     {
-                     "congradulation":"string"
+                     "congradulation":"string",
+                     "texture":"string"
                     },
                  "rotation":0,
                  "type":"",

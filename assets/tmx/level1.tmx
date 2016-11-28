@@ -9430,6 +9430,7 @@
   <object id="144" gid="24" x="442" y="1224" width="34" height="34">
    <properties>
     <property name="congradulation" value="Вступительная речь"/>
+    <property name="texture" value="ira-set"/>
    </properties>
   </object>
  </objectgroup>
