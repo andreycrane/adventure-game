@@ -68,6 +68,8 @@ Adventure.GameMenu.prototype.setActive = function(itemIdx) {
 	item.fill = 'red';
 	
 	this.currentItemIdx = itemIdx;
+	
+	this.pauseHead.fill = 'white';
 };
 
 Adventure.GameMenu.prototype.itemUp = function() {

@@ -58,6 +58,7 @@ Adventure.Guard.prototype.update = function() {
 			this.moveNext();
 		}
 	} else {
+		this.animations.stop();
 		this.hideText();
 	}
 };
@@ -67,7 +68,7 @@ Adventure.Guard.prototype.moveNext = function() {
 	
 	this.showText('Ну что, полетели дальше? :)');
 	
-	this.hideTextTween(function() {
+	this.t.hideTextTween(function() {
 		if (me.state.o.level < (Adventure.maps.length - 1)) {
 			me.state.game.state.start('middleState', true, false, me.state.o.level + 1);
 		} else {

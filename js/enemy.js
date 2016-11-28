@@ -84,7 +84,7 @@ Adventure.Enemy.prototype.moveLeft = function() {
 	
 	this.stop();
 	
-	setTimeout(function() {
+	this.leftTimeout = setTimeout(function() {
 		me.body.velocity.x = -Adventure.Enemy.velocity;
 		me.animations.play('left');
 	}, 1000);
@@ -95,7 +95,7 @@ Adventure.Enemy.prototype.moveRight = function() {
 	
 	this.stop();
 	
-	setTimeout(function() {
+	this.rightTimeout = setTimeout(function() {
 		me.body.velocity.x = Adventure.Enemy.velocity;
 		me.animations.play('right');
 	}, 1000);
@@ -106,6 +106,13 @@ Adventure.Enemy.prototype.die = function() {
 		this.state.game.sound.play('mob-die', 0.1);
 		this.dieTween.start();
 	}
+};
+
+Adventure.Enemy.prototype.destroy = function() {
+	clearTimeout(this.leftTimeout);
+	clearTimeout(this.rightTimeout);
+	
+	Phaser.Sprite.prototype.destroy.call(this);
 };
 
 
