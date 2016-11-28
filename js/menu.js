@@ -47,6 +47,8 @@ Adventure.Menu.prototype = {
 			}
 		);
 		this.captions.anchor.set(0.5, 0.5);
+		
+		this.game.sound.play('track1', 0.3);
 	},
 	
 	update: function() {

@@ -7,8 +7,8 @@ Adventure.GameMenu = function(state) {
 	this.state = state;
 	
 	var
-		baseX = (state.game.camera.x + state.game.camera.width) / 2,
-		baseY = (state.game.camera.y + state.game.camera.height) / 2,
+		baseX = state.game.camera.x + (state.game.camera.width / 2),
+		baseY = state.game.camera.y + (state.game.camera.height / 2),
 		itemStyle = {
 			font: '35px Press Start 2P',
 			fill: 'white'
@@ -120,6 +120,11 @@ Adventure.GameMenu.prototype.pause = function() {
 	this.state.game.paused = true;
 	this.pauseHead.alpha = 1;
 	this.menuGroup.alpha = 1;
+	
+	this.pauseHead.setTextBounds(
+		this.state.game.camera.x + (this.state.game.camera.width / 2),
+		this.state.game.camera.y + (this.state.game.camera.height / 2)
+	);
 	
 	this.setActive(Adventure.GameMenu.MUSIC_ITEM);
 	

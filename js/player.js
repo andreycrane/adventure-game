@@ -55,6 +55,9 @@ Adventure.Player = function(state, x, y) {
 	this.nextShotAt = 0;
 	// Задержка до следующего выстрела
 	this.shotDelay = 100;
+	
+	// Музыкальные эффекты
+	this.lossSound = this.state.game.sound.add('loss', 0.3);
 };
 
 Adventure.Player.prototype = Object.create(Phaser.Sprite.prototype);
@@ -73,7 +76,7 @@ Adventure.Player.prototype.resumeGravity = function() {
 
 
 Adventure.Player.prototype.moveLeft = function() {
-	this.body.velocity.x = -150;
+	this.body.velocity.x = -300;
 	this.animations.play('left');
 	this.direction = 'left';
 	// время начала бездействия
@@ -81,7 +84,7 @@ Adventure.Player.prototype.moveLeft = function() {
 };
 
 Adventure.Player.prototype.moveRight = function() {
-	this.body.velocity.x = 150;
+	this.body.velocity.x = 300;
 	this.animations.play('right');
 	this.direction = 'right';
 	// время начала бездействия
@@ -106,14 +109,28 @@ Adventure.Player.prototype.fire = function() {
 	// Сбрасываем спрайт и назначаем ему новое положение
 	bullet.reset(this.x + (this.width / 2), this.y + (this.height / 2));
 	
-	bullet.body.velocity.x = (this.direction == 'right') ? 200 : -200;
+	bullet.body.velocity.x = (this.direction == 'right') ? 600 : -600;
 	
 	// время начала бездействия
 	this.stopTime = this.state.game.time.now;
+	
+	this.state.game.sound.play('fire', 0.1);
 };
 
 Adventure.Player.prototype.die = function() {
-	this.state.game.state.restart(true, false, this.state.o.level);
+	if ( this.lossSound.isPlaying ) {
+		return;
+	}
+	
+	this.lossSound.onStop.addOnce(function() {
+		this.state.game.paused = false;
+		this.state.game.state.restart(true, false, this.state.o.level);
+	}, this);
+	
+	this.state.game.paused = true;
+	this.state.o.levelSound.stop();
+	this.state.game.sound.mute = false;
+	this.lossSound.play();
 };
 
 Adventure.Player.prototype.updatePlatform = function() {
@@ -176,6 +193,19 @@ Adventure.Player.prototype.updateStairs = function() {
 	}
 };
 
+Adventure.Player.prototype.updateBullets = function() {
+	this.state.game.physics.arcade.collide(
+		this.bulletPool,
+		this.state.o.levelLayer,
+		bullet =>  {
+			this.state.game.sound.play('explosion', 0.1);
+			bullet.kill();
+		},
+		null,
+		this
+	);
+};
+
 Adventure.Player.prototype.updateThorns = function() {
 	var overlapThorns = this.state.game.physics.arcade.overlap(this, this.state.o.thorns);
 	
@@ -207,6 +237,7 @@ Adventure.Player.prototype.enemyHit = function(bullet, enemy) {
 	// убиваем пулю и врага
 	bullet.kill();
 	enemy.die();
+	this.state.game.sound.play('explosion', 0.1);
 };
 
 
@@ -215,9 +246,9 @@ Adventure.Player.prototype.update = function() {
 	this.updateStairs();
 	this.updateThorns();
 	this.updateEnemies();
+	this.updateBullets();
 	
 	if (this.state.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 		this.fire();
 	}
-	
 };

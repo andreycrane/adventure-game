@@ -75,6 +75,7 @@ Adventure.Enemy.prototype.moveRight = function() {
 
 Adventure.Enemy.prototype.die = function() {
 	if ( !this.dieTween.isRunning ) {
+		this.state.game.sound.play('mob-die', 0.1);
 		this.dieTween.start();
 	}
 };
