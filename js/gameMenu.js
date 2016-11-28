@@ -96,7 +96,7 @@ Adventure.GameMenu.prototype.itemEnter = function() {
 
 
 Adventure.GameMenu.prototype.musicItemEnter = function() {
-	this.state.game.sound.mute = !this.state.game.sound.mute;
+	this.muteState = !this.muteState;
 	
 	this.musicItemUpdate();
 };
@@ -104,7 +104,7 @@ Adventure.GameMenu.prototype.musicItemEnter = function() {
 Adventure.GameMenu.prototype.musicItemUpdate = function() {
 	var item = this.menuGroup.getAt(Adventure.GameMenu.MUSIC_ITEM);
 	
-	item.setText('Музыка: ' + (this.state.game.sound.mute ? 'Выкл.' : 'Вкл.'));
+	item.setText('Музыка: ' + (this.muteState ? 'Выкл.' : 'Вкл.'));
 };
 
 Adventure.GameMenu.prototype.exitItemEnter = function() {
@@ -115,6 +115,8 @@ Adventure.GameMenu.prototype.exitItemEnter = function() {
 
 
 Adventure.GameMenu.prototype.pause = function() {
+	this.muteState = this.state.game.sound.mute;
+	
 	this.state.game.paused = true;
 	this.pauseHead.alpha = 1;
 	this.menuGroup.alpha = 1;
@@ -137,6 +139,8 @@ Adventure.GameMenu.prototype.unpause = function() {
 	this.downArrow.onDown.removeAll();
 	this.upArrow.onDown.removeAll();
 	this.enter.onDown.removeAll();
+	
+	this.state.game.sound.mute = this.muteState;
 };
 
 
