@@ -100,7 +100,6 @@ Adventure.Preload.prototype = {
 		
 		this.load.audio('fire', ['assets/music/fire.ogg']);
 		this.load.audio('explosion', ['assets/music/explosion.ogg']);
-		this.load.audio('run', ['assets/music/run.ogg']);
 		this.load.audio('mob-die', ['assets/music/mob-die.ogg']);
 		this.load.audio('middle', ['assets/music/middle.ogg']);
 		this.load.audio('loss', ['assets/music/loss.ogg']);
