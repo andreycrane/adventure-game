@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="245" height="38" tilewidth="34" tileheight="34" nextobjectid="145">
  <properties>
-  <property name="colleguesMan" type="int" value="25"/>
-  <property name="colleguesWoman" type="int" value="24"/>
+  <property name="colleguesMan" value="25"/>
+  <property name="colleguesWoman" value="24"/>
   <property name="enemies" value="26"/>
   <property name="guards" value="28"/>
   <property name="platform" value="1,2,3,4,5,6,7,21"/>
   <property name="stairs" value="61"/>
   <property name="thorns" value="81"/>
  </properties>
- <tileset firstgid="1" name="blocks" tilewidth="34" tileheight="34" tilecount="400" columns="20">
+ <tileset firstgid="1" name="blocks" tilewidth="34" tileheight="34" tilecount="400">
   <image source="../img/blocks1.png" width="680" height="680"/>
  </tileset>
  <layer name="level-layer" width="245" height="38">
@@ -9430,7 +9430,7 @@
   <object id="144" gid="24" x="442" y="1224" width="34" height="34">
    <properties>
     <property name="congradulation" value="Вступительная речь"/>
-    <property name="texture" value="ira-set"/>
+    <property name="custom-texture" value="ira-set"/>
    </properties>
   </object>
  </objectgroup>

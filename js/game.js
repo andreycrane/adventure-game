@@ -74,7 +74,7 @@ Adventure.Game.prototype = {
 	},
 	
 	createPause: function() {
-		var gameMenu = new Adventure.GameMenu(this);
+		this.o.gameMenu = new Adventure.GameMenu(this);
 	},
 	
 	create: function() {

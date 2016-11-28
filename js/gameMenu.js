@@ -7,19 +7,17 @@ Adventure.GameMenu = function(state) {
 	this.state = state;
 	
 	var
-		baseX = state.game.camera.x + (state.game.camera.width / 2),
-		baseY = state.game.camera.y + (state.game.camera.height / 2),
 		itemStyle = {
 			font: '35px Press Start 2P',
 			fill: 'white'
 		};
 	
 	this.pauseHead = state.game.add.text(
-		baseX,
-		baseY,
+		0,
+		0,
 		'Пауза',
 		{
-			font: '45px Press Start 2P',
+			font: '35px Press Start 2P',
 			fill: 'white'
 		}
 	);
@@ -30,13 +28,13 @@ Adventure.GameMenu = function(state) {
 	
 	this.menuGroup.addMultiple([
 		state.game.add.text(
-			baseX,
-			baseY + 50,
+			0,
+			0,
 			'Музыка: ' + (state.game.sound.mute ? 'Выкл.' : 'Вкл.'),
 			itemStyle),
 		state.game.add.text(
-			baseX,
-			baseY + 90,
+			0,
+			0,
 			'Выход',
 			itemStyle)
 	]);
@@ -121,11 +119,7 @@ Adventure.GameMenu.prototype.pause = function() {
 	this.pauseHead.alpha = 1;
 	this.menuGroup.alpha = 1;
 	
-	this.pauseHead.setTextBounds(
-		this.state.game.camera.x + (this.state.game.camera.width / 2),
-		this.state.game.camera.y + (this.state.game.camera.height / 2)
-	);
-	
+	this.setCoords();
 	this.setActive(Adventure.GameMenu.MUSIC_ITEM);
 	
 	this.downArrow.onDown.add(this.itemDown, this);
@@ -143,4 +137,21 @@ Adventure.GameMenu.prototype.unpause = function() {
 	this.downArrow.onDown.removeAll();
 	this.upArrow.onDown.removeAll();
 	this.enter.onDown.removeAll();
+};
+
+
+Adventure.GameMenu.prototype.debug = function() {
+	this.state.game.debug.text('text.x ' + this.pauseHead.x, 400, 100);
+	this.state.game.debug.text('text.y ' + this.pauseHead.y, 400, 120);
+};
+
+
+Adventure.GameMenu.prototype.setCoords = function() {
+	this.pauseHead.x = this.state.game.camera.x + (this.state.game.camera.width / 2);
+	this.pauseHead.y = this.state.game.camera.y + (this.state.game.camera.height / 2) - 100;
+	
+	this.menuGroup.children.forEach((item, index) => {
+		item.x = this.state.game.camera.x + (this.state.game.camera.width / 2);
+		item.y = this.state.game.camera.y + (this.state.game.camera.height / 2) + ((index + 1) * 50) - 100;
+	});
 };
