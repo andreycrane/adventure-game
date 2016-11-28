@@ -30,19 +30,19 @@ Adventure.Enemy = function(state, x, y, key) {
 Adventure.Enemy.prototype = Object.create(Phaser.Sprite.prototype);
 Adventure.Enemy.prototype.constructor = Adventure.Enemy;
 
-Adventure.Enemy.velocity = 70;
+Adventure.Enemy.velocity = 300;
 
 Adventure.Enemy.prototype.update = function() {
 	this.state.game.physics.arcade.collide(this, this.state.o.levelLayer, function() {
-		if ( this.body.blocked.right ) this.moveLeft();
-		if ( this.body.blocked.left ) this.moveRight();
+		if ( this.body.blocked.right && this.isMoveRight() ) this.moveLeft();
+		if ( this.body.blocked.left && this.isMoveLeft() ) this.moveRight();
 	}, null, this);
 	
-	if (!this.hasPlatformLeft() && this.hasPlatformRight()) {
+	if (!this.hasPlatformLeft() && this.hasPlatformRight() && this.isMoveLeft()) {
 		this.moveRight();
 	}
 	
-	if (this.hasPlatformLeft() && !this.hasPlatformRight()) {
+	if (this.hasPlatformLeft() && !this.hasPlatformRight() && this.isMoveRight()) {
 		this.moveLeft();
 	}
 };
@@ -63,14 +63,42 @@ Adventure.Enemy.prototype.hasPlatformRight  = function() {
 	return this.hasPlatfromTile(this.right + 5, this.bottom + 5);
 };
 
-Adventure.Enemy.prototype.moveLeft  = function() {
-	this.body.velocity.x = -Adventure.Enemy.velocity;
-	this.animations.play('left');
+
+Adventure.Enemy.prototype.isMoveRight = function() {
+	return (this.body.velocity.x > 0);
+};
+
+Adventure.Enemy.prototype.isMoveLeft = function() {
+	return (this.body.velocity.x < 0);
+};
+
+Adventure.Enemy.prototype.stop = function() {
+	this.body.velocity.x = 0;
+	this.frame = 4;
+	
+	this.animations.stop();
+};
+
+Adventure.Enemy.prototype.moveLeft = function() {
+	var me = this;
+	
+	this.stop();
+	
+	setTimeout(function() {
+		me.body.velocity.x = -Adventure.Enemy.velocity;
+		me.animations.play('left');
+	}, 1000);
 };
 
 Adventure.Enemy.prototype.moveRight = function() {
-	this.body.velocity.x = Adventure.Enemy.velocity;
-	this.animations.play('right');
+	var me = this;
+	
+	this.stop();
+	
+	setTimeout(function() {
+		me.body.velocity.x = Adventure.Enemy.velocity;
+		me.animations.play('right');
+	}, 1000);
 };
 
 Adventure.Enemy.prototype.die = function() {
