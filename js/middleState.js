@@ -11,6 +11,13 @@ Adventure.MiddleState.prototype = {
 		
 		this.game.world.resize(1000, 600);
 		this.game.world.setBounds(0, 0, 1000, 600);
+		this.game.sound.stopAll();
+		
+		this.middleSound = this.game.sound.add('middle');
+		
+		this.middleSound.onStop.add(function() {
+			this.game.state.start('game', true, false, this.level);
+		}, this);
 	},
 	
 	create: function() {
@@ -30,9 +37,6 @@ Adventure.MiddleState.prototype = {
 			}
 		);
 		this.title.anchor.set(0.5, 0.5);
-		
-		setTimeout(function() {
-			me.game.state.start('game', true, false, me.level);
-		}, 1000);
+		this.middleSound.play();
 	}
 };

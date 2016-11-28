@@ -11,6 +11,8 @@ Adventure.Game = function() {
 Adventure.Game.prototype = {
 	init: function(level) {
 		this.o.level = level;
+		
+		this.game.sound.stopAll();
 	},
 	
 	getMapIndexes: function() {
@@ -92,6 +94,9 @@ Adventure.Game.prototype = {
 		this.o.player = new Adventure.Player(this, 32, this.game.world.height - 150);
 		
 		this.o.cursors = this.game.input.keyboard.createCursorKeys();
+		
+		this.o.levelSound = this.game.sound.add('track3', 0.3, true);
+		this.o.levelSound.play();
 		
 		this.createPause();
 	},
