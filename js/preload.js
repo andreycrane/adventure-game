@@ -94,16 +94,16 @@ Adventure.Preload.prototype = {
 		this.load.image('decor', 'assets/img/decor.png');
 		this.load.image('piter_back', 'assets/img/piter_back.png');
 		
-		this.load.audio('track1', ['assets/music/track1.mp3']);
-		this.load.audio('track2', ['assets/music/track2.mp3']);
-		this.load.audio('track3', ['assets/music/track3.mp3']);
+		this.load.audio('track1', ['assets/music/track1.ogg']);
+		this.load.audio('track2', ['assets/music/track2.ogg']);
+		this.load.audio('track3', ['assets/music/track3.ogg']);
 		
-		this.load.audio('fire', ['assets/music/fire.wav']);
-		this.load.audio('explosion', ['assets/music/explosion.wav']);
-		this.load.audio('run', ['assets/music/run.wav']);
-		this.load.audio('mob-die', ['assets/music/mob-die.wav']);
-		this.load.audio('middle', ['assets/music/middle.wav']);
-		this.load.audio('loss', ['assets/music/loss.wav']);
+		this.load.audio('fire', ['assets/music/fire.ogg']);
+		this.load.audio('explosion', ['assets/music/explosion.ogg']);
+		this.load.audio('run', ['assets/music/run.ogg']);
+		this.load.audio('mob-die', ['assets/music/mob-die.ogg']);
+		this.load.audio('middle', ['assets/music/middle.ogg']);
+		this.load.audio('loss', ['assets/music/loss.ogg']);
 		
 		this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
 	},
