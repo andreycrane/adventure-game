@@ -34,8 +34,8 @@ Adventure.Enemy.velocity = 300;
 
 Adventure.Enemy.prototype.update = function() {
 	this.state.game.physics.arcade.collide(this, this.state.o.levelLayer, function() {
-		if ( this.body.blocked.right && this.isMoveRight() ) this.moveLeft();
-		if ( this.body.blocked.left && this.isMoveLeft() ) this.moveRight();
+		if ( this.body.blocked.right ) this.moveLeft();
+		if ( this.body.blocked.left ) this.moveRight();
 	}, null, this);
 	
 	if (!this.hasPlatformLeft() && this.hasPlatformRight() && this.isMoveLeft()) {
