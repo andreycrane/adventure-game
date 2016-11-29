@@ -44,6 +44,49 @@ Adventure.Game.prototype = {
 		this.o.map.setCollision(this.getMapIndexes().platform, true, 'level-layer');
 	},
 	
+	createDecors: function() {
+		var
+			mapData = Adventure.maps[this.o.level],
+			dec1 = this.game.cache.getImage(mapData.dec1.cacheName),
+			dec2 = this.game.cache.getImage(mapData.dec2.cacheName),
+			dec3 = this.game.cache.getImage(mapData.dec3.cacheName),
+			dec4 = this.game.cache.getImage(mapData.dec4.cacheName);
+		
+		this.o.dec1 = this.game.add.tileSprite(
+			0,
+			this.o.map.heightInPixels - dec1.height,
+			this.o.map.widthInPixels,
+			dec1.height,
+			mapData.dec1.cacheName
+		);
+		
+		this.o.dec2 = this.game.add.tileSprite(
+			0,
+			this.o.map.heightInPixels - dec2.height,
+			this.o.map.widthInPixels,
+			dec2.height,
+			mapData.dec2.cacheName
+		);
+		
+		
+		this.o.dec3 = this.game.add.tileSprite(
+			0,
+			this.o.map.heightInPixels - dec3.height,
+			this.o.map.widthInPixels,
+			dec3.height,
+			mapData.dec3.cacheName
+		);
+		
+		
+		this.o.dec4 = this.game.add.tileSprite(
+			0,
+			this.o.map.heightInPixels - dec4.height,
+			this.o.map.widthInPixels,
+			dec4.height,
+			mapData.dec4.cacheName
+		);
+	},
+	
 	createLayer: function() {
 		this.o.levelLayer = this.o.map.createLayer('level-layer');
 		this.o.levelLayer.resizeWorld();
@@ -83,6 +126,7 @@ Adventure.Game.prototype = {
 		
 		this.createBack();
 		this.createMap();
+		this.createDecors();
 		this.createLayer();
 		this.createPlatforms();
 		this.createStairs();
@@ -114,7 +158,15 @@ Adventure.Game.prototype = {
 		this.o.guards.forEach(function(g) { g.update(); });
 	},
 	
+	updateDecors: function() {
+		this.o.dec1.tilePosition.x = -this.game.camera.x * 0.025;
+		this.o.dec2.tilePosition.x = -this.game.camera.x * 0.05;
+		this.o.dec3.tilePosition.x = -this.game.camera.x * 0.1;
+		this.o.dec4.tilePosition.x = -this.game.camera.x * 0.2;
+	},
+	
 	update: function() {
+		this.updateDecors();
 		this.updateCollegues();
 		this.updateEnemies();
 		this.updateGuards();

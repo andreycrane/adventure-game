@@ -14,7 +14,7 @@ Adventure.Player = function(state, x, y) {
 	
 	this.state = state;
 	
-	this.body.bounce.y = 0.2;
+	this.body.bounce.y = 0.1;
 	this.body.gravity.y = 600;
 	this.body.collideWorldBounds = true;
 	
@@ -134,7 +134,20 @@ Adventure.Player.prototype.die = function() {
 };
 
 Adventure.Player.prototype.updatePlatform = function() {
-	var hitPlatform = this.state.game.physics.arcade.collide(this, this.state.o.levelLayer);
+	var hitPlatform = this.state.game.physics.arcade.collide(
+		this,
+		this.state.o.levelLayer,
+		function(player) {
+			if (player.state.o.cursors.up.isDown &&
+					(player.body.blocked.down ||
+					 player.body.blocked.left ||
+					 player.body.blocked.right)) {
+				// время начала бездействия
+				player.stopTime = player.state.game.time.now;
+				player.body.velocity.y = -450;
+			}
+		}
+	);
 	
 	this.body.velocity.x = 0;
 	
@@ -149,12 +162,6 @@ Adventure.Player.prototype.updatePlatform = function() {
 			this.animations.stop();
 			this.frame = 6;
 		}
-	}
-	
-	if (this.state.o.cursors.up.isDown && hitPlatform) {
-		// время начала бездействия
-		this.stopTime = this.state.game.time.now;
-		this.body.velocity.y = -450;
 	}
 };
 
