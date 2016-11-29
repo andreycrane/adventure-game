@@ -52,11 +52,7 @@ Adventure.Guard.prototype.update = function() {
 			this.animations.play('talk_right');
 		}
 		
-		if (livingEnemies > 0 || livingCollegues > 0) {
-			this.showText('Ты собрал не всех коллег и не уничтожил врагов! Я не могу тебя пропустить... :(');
-		} else {
-			this.moveNext();
-		}
+		this.moveNext();
 	} else {
 		this.animations.stop();
 		this.hideText();

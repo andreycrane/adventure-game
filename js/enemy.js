@@ -30,7 +30,7 @@ Adventure.Enemy = function(state, x, y, key) {
 Adventure.Enemy.prototype = Object.create(Phaser.Sprite.prototype);
 Adventure.Enemy.prototype.constructor = Adventure.Enemy;
 
-Adventure.Enemy.velocity = 300;
+Adventure.Enemy.velocity = 200;
 
 Adventure.Enemy.prototype.update = function() {
 	this.state.game.physics.arcade.collide(this, this.state.o.levelLayer, function() {

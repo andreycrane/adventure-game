@@ -15,7 +15,7 @@ Adventure.Player = function(state, x, y) {
 	this.state = state;
 	
 	this.body.bounce.y = 0.2;
-	this.body.gravity.y = 300;
+	this.body.gravity.y = 600;
 	this.body.collideWorldBounds = true;
 	
 	this.animations.add('left', [2, 3, 4, 5], 10, true);
@@ -154,7 +154,7 @@ Adventure.Player.prototype.updatePlatform = function() {
 	if (this.state.o.cursors.up.isDown && hitPlatform) {
 		// время начала бездействия
 		this.stopTime = this.state.game.time.now;
-		this.body.velocity.y = -350;
+		this.body.velocity.y = -450;
 	}
 };
 
