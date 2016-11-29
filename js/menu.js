@@ -49,6 +49,16 @@ Adventure.Menu.prototype = {
 		);
 		this.captions.anchor.set(0.5, 0.5);
 		
+		this.test = this.game.add.text(
+			0,
+			0,
+			'Press "Z" to start',
+			{
+				font: '15px Press Start 2P',
+				fill: '#272e35'
+			}
+		);
+		
 		this.game.sound.play('track1', 0.3);
 	},
 	
