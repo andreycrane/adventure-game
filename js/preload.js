@@ -29,6 +29,22 @@ Adventure.maps = [
 		guard: {
 			cacheName: 'guard1',
 			path: 'assets/img/pasha-set.png'
+		},
+		dec1: {
+			cacheName: 'dec1-1',
+			path: 'assets/img/rostov/decor-1.png'
+		},
+		dec2: {
+			cacheName: 'dec1-2',
+			path: 'assets/img/rostov/decor-2.png'
+		},
+		dec3: {
+			cacheName: 'dec1-3',
+			path: 'assets/img/rostov/decor-3.png'
+		},
+		dec4: {
+			cacheName: 'dec1-4',
+			path: 'assets/img/rostov/decor-4.png'
 		}
 	},
 	{
@@ -54,6 +70,22 @@ Adventure.maps = [
 		guard: {
 			cacheName: 'guard1',
 			path: 'assets/img/pasha-set.png'
+		},
+		dec1: {
+			cacheName: 'dec2-1',
+			path: 'assets/img/rostov/decor-1.png'
+		},
+		dec2: {
+			cacheName: 'dec2-1',
+			path: 'assets/img/rostov/decor-2.png'
+		},
+		dec3: {
+			cacheName: 'dec3-3',
+			path: 'assets/img/rostov/decor-3.png'
+		},
+		dec4: {
+			cacheName: 'dec4-4',
+			path: 'assets/img/rostov/decor-4.png'
 		}
 	}
 ];
@@ -77,10 +109,17 @@ Adventure.Preload.prototype = {
 		// Загрузка данных карт
 		Adventure.maps.forEach(function(m) {
 			this.load.tilemap(m.json.cacheName, m.json.path, null, Phaser.Tilemap.TILED_JSON);
+			
 			this.load.image(m.tileset.cacheName, m.tileset.path);
 			this.load.image(m.bg.cacheName, m.bg.path);
+			this.load.image(m.dec1.cacheName, m.dec1.path);
+			this.load.image(m.dec2.cacheName, m.dec2.path);
+			this.load.image(m.dec3.cacheName, m.dec3.path);
+			this.load.image(m.dec4.cacheName, m.dec4.path);
+			
 			this.load.spritesheet(m.mob.cacheName, m.mob.path, 34, 67);
 			this.load.spritesheet(m.guard.cacheName, m.guard.path, 34, 67);
+			
 		}, this);
 		
 		
@@ -121,5 +160,7 @@ Adventure.Preload.prototype = {
 			}
 		);
 		this.title.anchor.set(0.5, 0.5);
+		
+		this.game.sound.mute = Adventure.getMuteState();
 	}
 };

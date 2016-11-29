@@ -9,6 +9,7 @@ Adventure.Menu.prototype = {
 	init: function() {
 		this.game.world.resize(1000, 600);
 		this.game.world.setBounds(0, 0, 1000, 600);
+		this.game.sound.stopAll();
 	},
 	
 	create: function() {

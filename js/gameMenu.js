@@ -98,7 +98,7 @@ Adventure.GameMenu.prototype.itemEnter = function() {
 
 
 Adventure.GameMenu.prototype.musicItemEnter = function() {
-	this.muteState = !this.muteState;
+	Adventure.setMuteState(!Adventure.getMuteState());
 	
 	this.musicItemUpdate();
 };
@@ -106,7 +106,7 @@ Adventure.GameMenu.prototype.musicItemEnter = function() {
 Adventure.GameMenu.prototype.musicItemUpdate = function() {
 	var item = this.menuGroup.getAt(Adventure.GameMenu.MUSIC_ITEM);
 	
-	item.setText('Музыка: ' + (this.muteState ? 'Выкл.' : 'Вкл.'));
+	item.setText('Музыка: ' + (Adventure.getMuteState() ? 'Выкл.' : 'Вкл.'));
 };
 
 Adventure.GameMenu.prototype.exitItemEnter = function() {
@@ -116,8 +116,9 @@ Adventure.GameMenu.prototype.exitItemEnter = function() {
 };
 
 
+
 Adventure.GameMenu.prototype.pause = function() {
-	this.muteState = this.state.game.sound.mute;
+	Adventure.setMuteState(this.state.game.sound.mute);
 	
 	this.state.game.paused = true;
 	this.pauseHead.alpha = 1;
@@ -142,13 +143,7 @@ Adventure.GameMenu.prototype.unpause = function() {
 	this.upArrow.onDown.removeAll();
 	this.enter.onDown.removeAll();
 	
-	this.state.game.sound.mute = this.muteState;
-};
-
-
-Adventure.GameMenu.prototype.debug = function() {
-	this.state.game.debug.text('text.x ' + this.pauseHead.x, 400, 100);
-	this.state.game.debug.text('text.y ' + this.pauseHead.y, 400, 120);
+	this.state.game.sound.mute = Adventure.getMuteState();
 };
 
 
