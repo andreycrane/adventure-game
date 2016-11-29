@@ -26,7 +26,7 @@ Adventure.Captions.prototype = {
 				wordWrapWidth: this.game.camera.width - 50
 			}
 		);
-		this.captions.anchor.set(0.5, 0.5);
+		this.captions.anchor.set(0.5, 0);
 		
 		this.gr = this.game.add.graphics(0, 0);
 		this.gr.beginFill(0x272e35);
@@ -48,8 +48,15 @@ Adventure.Captions.prototype = {
 		this.text.anchor.set(0.5, 0.5);
 		this.text.setTextBounds(0, 0, this.game.camera.width, 20);
 		
+		console.log(this.captions.height);
 		this.captionsTween = this.game.add.tween(this.captions).to({ y: -this.captions.height }, 80 * 1000, Phaser.Easing.Linear.None);
 		this.captionsTween.start();
+		
+		this.captionsTween.onComplete.add(function() {
+			this.game.state.start('menu');
+		}, this);
+		
+		this.game.sound.play('track4', 0.3);
 	},
 	
 	update: function() {
