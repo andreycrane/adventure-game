@@ -6,48 +6,48 @@ var Adventure = Adventure || {};
 
 Adventure.Player = function(state, x, y) {
 	Phaser.Sprite.call(this, state.game, x, y, 'hero', 6);
-	
+
 	state.game.add.existing(this);
 	state.game.physics.arcade.enable(this);
 	state.game.physics.arcade.collideSpriteVsTilemapLayer(this, state.o.levelLayer);
 	state.game.camera.follow(this);
-	
+
 	this.state = state;
-	
+
 	this.body.bounce.y = 0.1;
-	this.body.gravity.y = 600;
+	this.body.gravity.y = 800;
 	this.body.collideWorldBounds = true;
-	
+
 	this.animations.add('left', [2, 3, 4, 5], 10, true);
 	this.animations.add('right', [7, 8, 9,10], 10, true);
 	this.animations.add('coding', [0, 1, 11, 12], 10, true);
-	
+
 	this.body.onWorldBounds = new Phaser.Signal();
 	this.body.onWorldBounds.add(function(sprite, up, down, left, righ) {
 		if (down) this.die();
 	}, this);
-	
+
 	// Направление в которое смотрит игрок
 	this.direction = 'right';
-	
+
 	// время начала бездействия
 	this.stopTime = state.game.time.now;
-	
+
 	// Создаем пустую группу спрайтов для пуль
 	this.bulletPool = state.game.add.group();
-	
+
 	// Подключаем физику для всей группы спрайтов
 	this.bulletPool.enableBody = true;
 	this.bulletPool.physicsBodyType = Phaser.Physics.ARCADE;
-	
+
 	// Создаем сотню заготовок спрайтов пуль
 	// по умолчанию они не отображены на экране
 	this.bulletPool.createMultiple(100, 'bullet');
-	
+
 	// Устанавливаем якоря спрайтов на центр
 	this.bulletPool.setAll('anchor.x', 0.5);
 	this.bulletPool.setAll('anchor.y', 0.5);
-	
+
 	// Автоматически уничтожаем пули если они выходят за границу экрана
 	this.bulletPool.setAll('outOfBoundsKill', true);
 	this.bulletPool.setAll('checkWorldBounds', true);
@@ -55,7 +55,7 @@ Adventure.Player = function(state, x, y) {
 	this.nextShotAt = 0;
 	// Задержка до следующего выстрела
 	this.shotDelay = 100;
-	
+
 	// Музыкальные эффекты
 	this.lossSound = this.state.game.sound.add('loss', 0.3);
 };
@@ -96,24 +96,24 @@ Adventure.Player.prototype.fire = function() {
 	if (this.nextShotAt > this.state.time.now) {
 		return;
 	}
-	
+
 	// Проверка доступности спрайтов пуль
 	if (this.bulletPool.countDead() === 0) {
 		return;
 	}
-	
+
 	// Отмечаем время доступности следующего выстрела
 	this.nextShotAt = this.state.time.now + this.shotDelay;
 	// Извлекаем первый неиспользуемый спрайт пули
 	var bullet = this.bulletPool.getFirstExists(false);
 	// Сбрасываем спрайт и назначаем ему новое положение
 	bullet.reset(this.x + (this.width / 2), this.y + (this.height / 2));
-	
+
 	bullet.body.velocity.x = (this.direction == 'right') ? 600 : -600;
-	
+
 	// время начала бездействия
 	this.stopTime = this.state.game.time.now;
-	
+
 	this.state.game.sound.play('fire', 0.1);
 };
 
@@ -121,12 +121,12 @@ Adventure.Player.prototype.die = function() {
 	if ( this.lossSound.isPlaying ) {
 		return;
 	}
-	
+
 	this.lossSound.onStop.addOnce(function() {
 		this.state.game.paused = false;
 		this.state.game.state.restart(true, false, this.state.o.level);
 	}, this);
-	
+
 	this.state.game.paused = true;
 	this.state.o.levelSound.stop();
 	this.state.game.sound.mute = false;
@@ -144,13 +144,13 @@ Adventure.Player.prototype.updatePlatform = function() {
 					 player.body.blocked.right)) {
 				// время начала бездействия
 				player.stopTime = player.state.game.time.now;
-				player.body.velocity.y = -450;
+				player.body.velocity.y = -600;
 			}
 		}
 	);
-	
+
 	this.body.velocity.x = 0;
-	
+
 	if ( this.state.o.cursors.left.isDown ) {
 		this.moveLeft();
 	} else if ( this.state.o.cursors.right.isDown ) {
@@ -168,7 +168,7 @@ Adventure.Player.prototype.updatePlatform = function() {
 
 Adventure.Player.prototype.updateStairs = function() {
 	var overlapStairs = this.state.game.physics.arcade.overlap(this, this.state.o.stairs);
-	
+
 	if (overlapStairs) {
 		if (this.state.o.cursors.up.isDown) {
 			this.body.y -= 5;
@@ -178,22 +178,22 @@ Adventure.Player.prototype.updateStairs = function() {
 		if (this.state.o.cursors.down.isDown) {
 			// время начала бездействия
 			this.stopTime = this.state.game.time.now;
-			
+
 			[1, 1, 1, 1, 1].forEach(function(i) {
 				if ( !this.state.game.physics.arcade.overlap(this, this.state.o.platforms) ) {
 					this.body.y += 1;
 				}
 			}, this);
 		}
-		
+
 		if (this.state.o.cursors.right.isDown) {
 			this.moveRight();
 		}
-		
+
 		if (this.state.o.cursors.left.isDown) {
 			this.moveLeft();
 		}
-		
+
 		this.pauseGravity();
 	} else {
 		this.resumeGravity();
@@ -215,7 +215,7 @@ Adventure.Player.prototype.updateBullets = function() {
 
 Adventure.Player.prototype.updateThorns = function() {
 	var overlapThorns = this.state.game.physics.arcade.overlap(this, this.state.o.thorns);
-	
+
 	if (overlapThorns) {
 		this.die();
 	}
@@ -225,15 +225,15 @@ Adventure.Player.prototype.updateThorns = function() {
 Adventure.Player.prototype.updateEnemies = function() {
 	// Пересечение пуль с врагами
 	this.state.game.physics.arcade.overlap(this.bulletPool, this.state.o.enemies, this.enemyHit, null, this);
-	
+
 	this.state.game.physics.arcade.collide(this, this.state.o.enemies, function(player, enemy) {
 		if( this.body.touching.right ||
 			this.body.touching.left ||
 			this.body.touching.top ) {
-			
+
 			this.die();
 		}
-		
+
 		if ( this.body.touching.down ) {
 			enemy.die();
 		}
@@ -254,7 +254,7 @@ Adventure.Player.prototype.update = function() {
 	this.updateThorns();
 	this.updateEnemies();
 	this.updateBullets();
-	
+
 	if (this.state.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
 		this.fire();
 	}
