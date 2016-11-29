@@ -15,9 +15,10 @@ Adventure.MiddleState.prototype = {
 		
 		this.middleSound = this.game.sound.add('middle');
 		
-		this.middleSound.onStop.add(function() {
+		this.middleSound.onStop.addOnce(function() {
 			this.game.state.start('game', true, false, this.level);
 		}, this);
+		
 	},
 	
 	create: function() {

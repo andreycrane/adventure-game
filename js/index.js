@@ -1,6 +1,16 @@
 'use strict';
 
+/* globals window, Phaser */
 var Adventure = Adventure || {};
+
+
+Adventure.getMuteState = function() {
+	return window.localStorage.getItem('muteState') === 'true';
+};
+
+Adventure.setMuteState = function(state) {
+	window.localStorage.setItem('muteState', state);
+};
 
 /* globals Phaser */
 Adventure.game = new Phaser.Game(1000, 600, Phaser.CANVAS, 'kurt-advenure');
