@@ -28,9 +28,14 @@ Adventure.Captions.prototype = {
 		);
 		this.captions.anchor.set(0.5, 0.5);
 		
+		this.gr = this.game.add.graphics(0, 0);
+		this.gr.beginFill(0x272e35);
+		this.gr.drawRect(0, 0, this.game.camera.width, 50);
+		this.gr.endFill();
+		
 		this.text = this.game.add.text(
 			this.game.world.centerX,
-			10,
+			30,
 			'Титры',
 			{
 				font: '25px Press Start 2P',
@@ -41,8 +46,9 @@ Adventure.Captions.prototype = {
 			}
 		);
 		this.text.anchor.set(0.5, 0.5);
+		this.text.setTextBounds(0, 0, this.game.camera.width, 20);
 		
-		this.captionsTween = this.game.add.tween(this.captions).to({ y: -this.captions.height }, 60 * 1000, Phaser.Easing.Linear.None);
+		this.captionsTween = this.game.add.tween(this.captions).to({ y: -this.captions.height }, 80 * 1000, Phaser.Easing.Linear.None);
 		this.captionsTween.start();
 	},
 	
