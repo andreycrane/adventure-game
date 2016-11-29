@@ -14039,26 +14039,106 @@
   <object id="78" gid="26" x="3910" y="1088" width="34" height="34"/>
  </objectgroup>
  <objectgroup name="collegue-layer">
-  <object id="43" gid="24" x="0" y="1360" width="34" height="34"/>
-  <object id="44" gid="24" x="1224" y="816" width="34" height="34"/>
-  <object id="45" gid="24" x="2210" y="1632" width="34" height="34"/>
-  <object id="47" gid="24" x="2890" y="1768" width="34" height="34"/>
-  <object id="48" gid="24" x="2448" y="2312" width="34" height="34"/>
-  <object id="49" gid="24" x="6698" y="1632" width="34" height="34"/>
-  <object id="50" gid="24" x="6766" y="816" width="34" height="34"/>
-  <object id="51" gid="24" x="5304" y="1020" width="34" height="34"/>
-  <object id="52" gid="24" x="6698" y="1904" width="34" height="34"/>
-  <object id="54" gid="24" x="2448" y="1360" width="34" height="34"/>
-  <object id="55" gid="25" x="3468" y="1904" width="34" height="34"/>
-  <object id="56" gid="25" x="1530" y="1700" width="34" height="34"/>
-  <object id="57" gid="25" x="2448" y="1972" width="34" height="34"/>
-  <object id="58" gid="25" x="5168" y="1360" width="34" height="34"/>
-  <object id="59" gid="25" x="476" y="1156" width="34" height="34"/>
-  <object id="60" gid="25" x="4012" y="1904" width="34" height="34"/>
-  <object id="61" gid="25" x="5610" y="1156" width="34" height="34"/>
-  <object id="62" gid="25" x="3332" y="952" width="34" height="34"/>
-  <object id="63" gid="25" x="2584" y="884" width="34" height="34"/>
-  <object id="64" gid="25" x="1666" y="1020" width="34" height="34"/>
+  <object id="43" gid="24" x="0" y="1360" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!"/>
+   </properties>
+  </object>
+  <object id="44" gid="24" x="1224" y="816" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="45" gid="24" x="2210" y="1632" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!"/>
+   </properties>
+  </object>
+  <object id="47" gid="24" x="2890" y="1768" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="48" gid="24" x="2448" y="2312" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="49" gid="24" x="6698" y="1632" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!"/>
+   </properties>
+  </object>
+  <object id="50" gid="24" x="6766" y="816" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!"/>
+   </properties>
+  </object>
+  <object id="51" gid="24" x="5304" y="1020" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="52" gid="24" x="6698" y="1904" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!"/>
+   </properties>
+  </object>
+  <object id="54" gid="24" x="2448" y="1360" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="55" gid="25" x="3468" y="1904" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!"/>
+   </properties>
+  </object>
+  <object id="56" gid="25" x="1530" y="1700" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="57" gid="25" x="2448" y="1972" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="58" gid="25" x="5168" y="1360" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="59" gid="25" x="476" y="1156" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!"/>
+   </properties>
+  </object>
+  <object id="60" gid="25" x="4012" y="1904" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="61" gid="25" x="5610" y="1156" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="62" gid="25" x="3332" y="952" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!"/>
+   </properties>
+  </object>
+  <object id="63" gid="25" x="2584" y="884" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
+  <object id="64" gid="25" x="1666" y="1020" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="!!!"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="guard-layer">
   <object id="68" gid="28" x="6698" y="1088" width="34" height="34"/>
