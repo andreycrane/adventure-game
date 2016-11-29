@@ -101,7 +101,7 @@ Adventure.Preload.prototype = {
 			},
 			
 			google: {
-				families: ['Press Start 2P::cyrillic', 'Bungee Inline', 'Aldrich']
+				families: ['Bungee Inline', 'Aldrich', 'Press Start 2P:regular:cyrillic']
 			}
 		};
 		
@@ -143,7 +143,7 @@ Adventure.Preload.prototype = {
 		this.load.audio('middle', ['assets/music/middle.ogg']);
 		this.load.audio('loss', ['assets/music/loss.ogg']);
 		
-		this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js');
+		this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 	},
 	
 	create: function() {
@@ -155,7 +155,7 @@ Adventure.Preload.prototype = {
 			this.game.world.centerY - 10,
 			'Loading...',
 			{
-				font: '50px',
+				font: '50px Press Start 2P',
 				fill: 'white'
 			}
 		);

@@ -6,7 +6,7 @@ var Adventure = Adventure || {};
 Adventure.Captions = function() {};
 
 Adventure.Captions.prototype = {
-	init: function(level, timeout) {
+	init: function(level) {
 		this.game.world.resize(1000, 600);
 		this.game.world.setBounds(0, 0, 1000, 600);
 		this.game.sound.stopAll();
@@ -15,27 +15,41 @@ Adventure.Captions.prototype = {
 	create: function() {
 		this.game.stage.backgroundColor = '#272e35';
 		
-		this.text = this.game.add.text(
-			this.game.world.centerX,
-			10,
-			'Титры',
-			{
-				font: '25px Press Start 2P',
-				fill: 'white'
-			}
-		);
-		this.text.anchor.set(0.5, 0.5);
-		
 		this.captions = this.game.add.text(
 			this.game.world.centerX,
 			40,
 			document.getElementById('captions').innerText,
 			{
 				font: '20px Press Start 2P',
-				fill: 'white'
+				fill: 'white',
+				wordWrap: true,
+				wordWrapWidth: this.game.camera.width - 50
 			}
 		);
 		this.captions.anchor.set(0.5, 0.5);
+		
+		this.gr = this.game.add.graphics(0, 0);
+		this.gr.beginFill(0x272e35);
+		this.gr.drawRect(0, 0, this.game.camera.width, 50);
+		this.gr.endFill();
+		
+		this.text = this.game.add.text(
+			this.game.world.centerX,
+			30,
+			'Титры',
+			{
+				font: '25px Press Start 2P',
+				backgroundColor: '#272e35',
+				fill: 'white',
+				wordWrap: true,
+				wordWrapWidth: this.game.camera.width
+			}
+		);
+		this.text.anchor.set(0.5, 0.5);
+		this.text.setTextBounds(0, 0, this.game.camera.width, 20);
+		
+		this.captionsTween = this.game.add.tween(this.captions).to({ y: -this.captions.height }, 80 * 1000, Phaser.Easing.Linear.None);
+		this.captionsTween.start();
 	},
 	
 	update: function() {
