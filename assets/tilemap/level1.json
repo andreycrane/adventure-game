@@ -25,6 +25,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 1!"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -40,6 +44,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 2"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -57,6 +65,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 3"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -72,6 +84,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 4"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -89,6 +105,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 5"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -104,6 +124,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 6"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -121,6 +145,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 7"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -136,6 +164,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 8"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -153,6 +185,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 9"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -168,6 +204,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 10"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -185,6 +225,10 @@
                     {
                      "congradulation":"\u043f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 11"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -200,6 +244,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 12"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -217,6 +265,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 13"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -232,6 +284,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 14"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -249,6 +305,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 15"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -264,6 +324,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 16"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -281,6 +345,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 18"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -296,6 +364,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 19"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -313,6 +385,10 @@
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 17"
                     },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
+                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -328,6 +404,10 @@
                  "properties":
                     {
                      "congradulation":"\u041f\u043e\u0437\u0434\u0440\u0430\u0432\u043b\u044f\u044e 20"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -345,6 +425,11 @@
                     {
                      "congradulation":"\u0412\u0441\u0442\u0443\u043f\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0440\u0435\u0447\u044c",
                      "custom-texture":"ira-set"
+                    },
+                 "propertytypes":
+                    {
+                     "congradulation":"string",
+                     "custom-texture":"string"
                     },
                  "rotation":0,
                  "type":"",
@@ -370,16 +455,24 @@
                  "height":34,
                  "id":136,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":34,
                  "x":8160,
                  "y":510
+                }, 
+                {
+                 "gid":28,
+                 "height":34,
+                 "id":145,
+                 "name":"",
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":34,
+                 "x":510,
+                 "y":1224
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -398,10 +491,6 @@
                  "height":34,
                  "id":94,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -414,10 +503,6 @@
                  "height":34,
                  "id":95,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -430,10 +515,6 @@
                  "height":34,
                  "id":96,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -446,10 +527,6 @@
                  "height":34,
                  "id":97,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -462,10 +539,6 @@
                  "height":34,
                  "id":98,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -478,10 +551,6 @@
                  "height":34,
                  "id":99,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -494,10 +563,6 @@
                  "height":34,
                  "id":100,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -510,10 +575,6 @@
                  "height":34,
                  "id":101,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -526,10 +587,6 @@
                  "height":34,
                  "id":102,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -542,10 +599,6 @@
                  "height":34,
                  "id":103,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -558,10 +611,6 @@
                  "height":34,
                  "id":104,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -574,10 +623,6 @@
                  "height":34,
                  "id":105,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -590,10 +635,6 @@
                  "height":34,
                  "id":106,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -606,10 +647,6 @@
                  "height":34,
                  "id":108,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -622,10 +659,6 @@
                  "height":34,
                  "id":109,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -638,10 +671,6 @@
                  "height":34,
                  "id":111,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -654,10 +683,6 @@
                  "height":34,
                  "id":112,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -670,10 +695,6 @@
                  "height":34,
                  "id":113,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -686,10 +707,6 @@
                  "height":34,
                  "id":114,
                  "name":"",
-                 "properties":
-                    {
-
-                    },
                  "rotation":0,
                  "type":"",
                  "visible":true,
@@ -704,7 +721,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":145,
+ "nextobjectid":146,
  "orientation":"orthogonal",
  "properties":
     {
@@ -716,20 +733,27 @@
      "stairs":"61",
      "thorns":"81"
     },
+ "propertytypes":
+    {
+     "colleguesMan":"string",
+     "colleguesWoman":"string",
+     "enemies":"string",
+     "guards":"string",
+     "platform":"string",
+     "stairs":"string",
+     "thorns":"string"
+    },
  "renderorder":"right-down",
  "tileheight":34,
  "tilesets":[
         {
+         "columns":20,
          "firstgid":1,
          "image":"..\/img\/blocks1.png",
          "imageheight":680,
          "imagewidth":680,
          "margin":0,
          "name":"blocks",
-         "properties":
-            {
-
-            },
          "spacing":0,
          "tilecount":400,
          "tileheight":34,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="70" tilewidth="34" tileheight="34" nextobjectid="79">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="70" tilewidth="34" tileheight="34" nextobjectid="80">
  <properties>
   <property name="colleguesMan" value="25"/>
   <property name="colleguesWoman" value="24"/>
@@ -14064,5 +14064,6 @@
   <object id="68" gid="28" x="6698" y="1088" width="34" height="34"/>
   <object id="69" gid="26" x="6698" y="1360" width="34" height="34"/>
   <object id="72" gid="26" x="1428" y="884" width="34" height="34"/>
+  <object id="79" gid="28" x="544" y="2108" width="34" height="34"/>
  </objectgroup>
 </map>
