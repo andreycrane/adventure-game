@@ -14141,9 +14141,17 @@
   </object>
  </objectgroup>
  <objectgroup name="guard-layer">
-  <object id="68" gid="28" x="6698" y="1088" width="34" height="34"/>
+  <object id="68" gid="28" x="6698" y="1088" width="34" height="34">
+   <properties>
+    <property name="customText" value="Ну вот и все! Все враги повержены, мы знали что ты не подведешь! Теперь-то, когда все битвы позади, можно как следует отпраздновать! Ура! С днем рождения!"/>
+   </properties>
+  </object>
   <object id="69" gid="26" x="6698" y="1360" width="34" height="34"/>
   <object id="72" gid="26" x="1428" y="884" width="34" height="34"/>
-  <object id="79" gid="28" x="544" y="2108" width="34" height="34"/>
+  <object id="79" gid="28" x="544" y="2108" width="34" height="34">
+   <properties>
+    <property name="customText" value="Ну вот и все! Все враги повержены, мы знали что ты не подведешь! Теперь-то, когда все битвы позади, можно как следует отпраздновать! Ура! С днем рождения!"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

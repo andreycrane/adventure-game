@@ -11338,7 +11338,15 @@
   </object>
  </objectgroup>
  <objectgroup name="guard-layer">
-  <object id="68" gid="28" x="6664" y="952" width="34" height="34"/>
-  <object id="70" gid="28" x="442" y="1700" width="34" height="34"/>
+  <object id="68" gid="28" x="6664" y="952" width="34" height="34">
+   <properties>
+    <property name="customText" value="Отлично! Ты справился! Теперь коллеги в этом офисе могут вздохнуть спокойно, но тебе некогда отдыхать, другие офисы тоже нуждаются в твоей помощи! Следуй за мной, я перенесу тебя туда!"/>
+   </properties>
+  </object>
+  <object id="70" gid="28" x="442" y="1700" width="34" height="34">
+   <properties>
+    <property name="customText" value="Отлично! Ты справился! Теперь коллеги в этом офисе могут вздохнуть спокойно, но тебе некогда отдыхать, другие офисы тоже нуждаются в твоей помощи! Следуй за мной, я перенесу тебя туда!"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

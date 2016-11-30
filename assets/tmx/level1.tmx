@@ -9429,14 +9429,22 @@
   </object>
   <object id="144" gid="24" x="442" y="1224" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Вступительная речь"/>
+    <property name="congradulation" value="Женя! Коллеги хотели поздравить тебя с днем рождения, но на наш офис напали зловещие баги и спам! Только ты можешь помочь! На всякий случай: движение СТРЕЛКАМИ, а чтобы отбиться от врагов кидайся в них айфонами - ПРОБЕЛ. Да прибудет с тобой сила!"/>
     <property name="custom-texture" value="ira-set"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="guard-layer">
-  <object id="136" gid="28" x="8160" y="510" width="34" height="34"/>
-  <object id="145" gid="28" x="510" y="1224" width="34" height="34"/>
+  <object id="136" gid="28" x="8160" y="510" width="34" height="34">
+   <properties>
+    <property name="customText" value="Отлично! Ты справился! Теперь коллеги в этом офисе могут вздохнуть спокойно, но тебе некогда отдыхать, другие офисы тоже нуждаются в твоей помощи! Следуй за мной, я перенесу тебя туда!"/>
+   </properties>
+  </object>
+  <object id="145" gid="28" x="510" y="1224" width="34" height="34">
+   <properties>
+    <property name="customText" value="Отлично! Ты справился! Теперь коллеги в этом офисе могут вздохнуть спокойно, но тебе некогда отдыхать, другие офисы тоже нуждаются в твоей помощи! Следуй за мной, я перенесу тебя туда!"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="enemy-layer">
   <object id="94" gid="26" x="442" y="340" width="34" height="34"/>
