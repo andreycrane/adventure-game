@@ -12,7 +12,8 @@ Adventure.SpeechBubble = function(state, text, x, y) {
 		{
 			font: '10px Press Start 2P',
 			fill: 'black',
-			wordWrap: true
+			wordWrap: true,
+			wordWrapWidth: 300
 		}
 	);
 	
@@ -24,8 +25,13 @@ Adventure.SpeechBubble = function(state, text, x, y) {
 	this.graphics.alpha = 0;
 	this.shown = false;
 	
-	this.speechTween = state.game.add.tween(this.graphics).to({ alpha: 0 }, 5000, Phaser.Easing.Linear.None);
-	this.textTween = state.game.add.tween(this.text).to({ alpha: 0 }, 5000, Phaser.Easing.Linear.None);
+	this.speechTween = state.game.add.tween(this.graphics)
+						.to({ alpha: 1 }, 10000, Phaser.Easing.Linear.None)
+						.to({ alpha: 0 }, 2000, Phaser.Easing.Linear.None);
+	
+	this.textTween = state.game.add.tween(this.text)
+						.to({ alpha: 1 }, 10000, Phaser.Easing.Linear.None)
+						.to({ alpha: 0 }, 2000, Phaser.Easing.Linear.None);
 };
 
 Adventure.SpeechBubble.prototype.hideTextTween = function(cb) {
