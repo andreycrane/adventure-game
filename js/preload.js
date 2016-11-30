@@ -15,7 +15,7 @@ Adventure.Preload.prototype = {
 			},
 			
 			google: {
-				families: ['Bungee Inline', 'Aldrich', 'Press Start 2P:regular:cyrillic']
+				families: ['Bungee Inline', 'Aldrich', 'Press Start 2P:regular:cyrillic,latin'],
 			}
 		};
 		
@@ -69,7 +69,7 @@ Adventure.Preload.prototype = {
 			this.game.world.centerY - 10,
 			'Loading...',
 			{
-				font: '50px Press Start 2P',
+				font: '40px Press Start 2P',
 				fill: 'white'
 			}
 		);
