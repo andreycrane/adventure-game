@@ -152,6 +152,10 @@ Adventure.Game.prototype = {
 		this.o.dec1.tilePosition.x = -this.game.camera.x * 0.025;
 		this.o.dec2.tilePosition.x = -this.game.camera.x * 0.05;
 		this.o.dec3.tilePosition.x = -this.game.camera.x * 0.1;
+		
+		this.o.dec3.tilePosition.y = -this.game.camera.y * 0.1;
+		this.o.dec2.tilePosition.y = -this.game.camera.y * 0.05;
+		this.o.dec3.tilePosition.y = -this.game.camera.y * 0.1;
 	},
 	
 	update: function() {
