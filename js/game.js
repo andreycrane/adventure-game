@@ -17,9 +17,9 @@ Adventure.Game.prototype = {
 	
 	getMapIndexes: function() {
 		return {
-			platform: this.o.map.properties.platform.split(',').map(i => parseInt(i)),
-			stairs: this.o.map.properties.stairs.split(',').map(i => parseInt(i)),
-			thorns: this.o.map.properties.thorns.split(',').map(i => parseInt(i)),
+			platform: this.o.map.properties.platform.split(',').map(function(i) { return parseInt(i); }),
+			stairs: this.o.map.properties.stairs.split(',').map(function(i) { return parseInt(i); }),
+			thorns: this.o.map.properties.thorns.split(',').map(function(i) { return parseInt(i); }),
 			enemies: parseInt(this.o.map.properties.enemies),
 			colleguesMan: parseInt(this.o.map.properties.colleguesMan),
 			colleguesWoman: parseInt(this.o.map.properties.colleguesWoman),

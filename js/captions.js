@@ -18,7 +18,7 @@ Adventure.Captions.prototype = {
 		this.captions = this.game.add.text(
 			this.game.world.centerX,
 			40,
-			document.getElementById('captions').innerText,
+			this.game.cache.getText('captions'),
 			{
 				font: '20px Press Start 2P',
 				fill: 'white',

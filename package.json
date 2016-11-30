@@ -4,7 +4,9 @@
   "description": "Adventure game",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "node index.js",
+	"postinstall": "grunt"
   },
   "repository": {
     "type": "git",
@@ -19,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/andreycrane/adventure-game/issues"
   },
-  "homepage": "https://github.com/andreycrane/adventure-game#readme"
+  "homepage": "https://github.com/andreycrane/adventure-game#readme",
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0"
+  }
 }

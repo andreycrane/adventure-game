@@ -11,10 +11,9 @@ Adventure.Player = function(state, x, y) {
 	state.game.physics.arcade.enable(this);
 	state.game.physics.arcade.collideSpriteVsTilemapLayer(this, state.o.levelLayer);
 	state.game.camera.follow(this);
-
+	
 	this.state = state;
-
-	this.body.bounce.y = 0.1;
+	
 	this.body.gravity.y = 800;
 	this.body.collideWorldBounds = true;
 
@@ -204,7 +203,7 @@ Adventure.Player.prototype.updateBullets = function() {
 	this.state.game.physics.arcade.collide(
 		this.bulletPool,
 		this.state.o.levelLayer,
-		bullet =>  {
+		function(bullet) {
 			this.state.game.sound.play('explosion', 0.1);
 			bullet.kill();
 		},
