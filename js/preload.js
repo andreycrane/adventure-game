@@ -5,13 +5,20 @@ var Adventure = Adventure || {};
 
 Adventure.Preload = function() {};
 
+
+
+
 Adventure.Preload.prototype = {
+	completed: [],
+	
+	loadSignal: new Phaser.Signal(),
+	
 	preload: function() {
 		var me = this;
 		
 		window.WebFontConfig = {
 			active: function() {
-				me.game.time.events.add(Phaser.Timer.SECOND, me.state.start.bind(me.state, 'menu'));
+				me.loadSignal.dispatch("fontsComplete");
 			},
 			
 			google: {
@@ -58,6 +65,19 @@ Adventure.Preload.prototype = {
 		this.load.text('captions', 'assets/text/captions.txt');
 		
 		this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
+		
+		this.load.onLoadComplete.add(function() {
+			this.loadSignal.dispatch("loaderComplete");
+		}, this);
+		
+		this.loadSignal.add(function(t) {
+			this.completed.push(t);
+			
+			if ( this.completed.indexOf("fontsComplete") !== -1 &&
+				this.completed.indexOf("loaderComplete") !== -1 ) {
+				this.game.state.start('menu');
+			}
+		}, this);
 	},
 	
 	create: function() {
@@ -76,10 +96,5 @@ Adventure.Preload.prototype = {
 		this.title.anchor.set(0.5, 0.5);
 		
 		this.game.sound.mute = Adventure.getMuteState();
-	},
-	
-	render: function() {
-		this.game.stage.backgroundColor = '#272e35';
-		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 	}
 };
