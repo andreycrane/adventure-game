@@ -204,7 +204,7 @@ Adventure.Player.prototype.updateBullets = function() {
 	this.state.game.physics.arcade.collide(
 		this.bulletPool,
 		this.state.o.levelLayer,
-		bullet =>  {
+		function(bullet) {
 			this.state.game.sound.play('explosion', 0.1);
 			bullet.kill();
 		},

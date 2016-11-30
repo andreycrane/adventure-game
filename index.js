@@ -8,8 +8,10 @@ const
 http.createServer((req, res) => {
 	let filePath = '.' + req.url;
 	
-	if ( filePath == './' ) {
+	if ( filePath == './' && process.env.NODE_ENV === 'development') {
 		filePath = './index.html';
+	} else if (filePath == './' && process.env.NODE_ENV === 'production') {
+		filePath = './dist/index.html';
 	}
 	
 	const extname = path.extname(filePath);

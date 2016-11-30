@@ -57,6 +57,8 @@ Adventure.Preload.prototype = {
 		this.load.audio('middle', ['assets/music/middle.ogg']);
 		this.load.audio('loss', ['assets/music/loss.ogg']);
 		
+		this.load.text('captions', 'assets/text/captions.txt');
+		
 		this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 	},
 	
