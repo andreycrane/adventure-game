@@ -55,7 +55,7 @@ Adventure.Preload.prototype = {
 		this.load.spritesheet('man-set', 'assets/img/man-set.png', 34, 68);
 		this.load.spritesheet('woman-set', 'assets/img/woman-set.png', 34, 68);
 		this.load.spritesheet('ira-set', 'assets/img/ira-set.png', 34, 68);
-		this.load.spritesheet('bullet-phone', 'assets/img/bullet_sprite-set.png', 32, 31);
+		this.load.spritesheet('bullet-phone', 'assets/img/bullet_sprite_phone.png', 32, 31);
 		
 		this.load.audio('track1', ['assets/music/track1.ogg']);
 		this.load.audio('track3', ['assets/music/track3.ogg']);
