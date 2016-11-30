@@ -84,5 +84,11 @@ Adventure.Collegue.createFromObjects = function(state) {
 		t
 	);
 	
+	collegues.forEach(function(collegue) {
+		if( typeof(collegue.customTexture) !== 'undefined' ) {
+			collegue.loadTexture(collegue.customTexture, 3);
+		}
+	});
+	
 	return collegues;
 };

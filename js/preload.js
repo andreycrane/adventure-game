@@ -54,6 +54,7 @@ Adventure.Preload.prototype = {
 		this.load.spritesheet('hero', 'assets/img/hero-set.png', 34, 68);
 		this.load.spritesheet('man-set', 'assets/img/man-set.png', 34, 68);
 		this.load.spritesheet('woman-set', 'assets/img/woman-set.png', 34, 68);
+		this.load.spritesheet('ira-set', 'assets/img/ira-set.png', 34, 68);
 		
 		this.load.image('bullet', 'assets/img/bullet_sprite.png');
 		
