@@ -48,8 +48,7 @@ Adventure.Captions.prototype = {
 		this.text.anchor.set(0.5, 0.5);
 		this.text.setTextBounds(0, 0, this.game.camera.width, 20);
 		
-		console.log(this.captions.height);
-		this.captionsTween = this.game.add.tween(this.captions).to({ y: -this.captions.height }, 80 * 1000, Phaser.Easing.Linear.None);
+		this.captionsTween = this.game.add.tween(this.captions).to({ y: -this.captions.height }, 150 * 1000, Phaser.Easing.Linear.None);
 		this.captionsTween.start();
 		
 		this.captionsTween.onComplete.add(function() {
