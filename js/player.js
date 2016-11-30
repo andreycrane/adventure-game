@@ -11,10 +11,9 @@ Adventure.Player = function(state, x, y) {
 	state.game.physics.arcade.enable(this);
 	state.game.physics.arcade.collideSpriteVsTilemapLayer(this, state.o.levelLayer);
 	state.game.camera.follow(this);
-
+	
 	this.state = state;
-
-	this.body.bounce.y = 0.1;
+	
 	this.body.gravity.y = 800;
 	this.body.collideWorldBounds = true;
 

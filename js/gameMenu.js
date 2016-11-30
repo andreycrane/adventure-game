@@ -154,5 +154,5 @@ Adventure.GameMenu.prototype.setCoords = function() {
 	this.menuGroup.children.forEach(function(item, index) {
 		item.x = this.state.game.camera.x + (this.state.game.camera.width / 2);
 		item.y = this.state.game.camera.y + (this.state.game.camera.height / 2) + ((index + 1) * 50) - 100;
-	});
+	}, this);
 };
