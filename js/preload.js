@@ -45,7 +45,6 @@ Adventure.Preload.prototype = {
 			this.load.image(m.dec1.cacheName, m.dec1.path);
 			this.load.image(m.dec2.cacheName, m.dec2.path);
 			this.load.image(m.dec3.cacheName, m.dec3.path);
-			this.load.image(m.dec4.cacheName, m.dec4.path);
 			
 			this.load.spritesheet(m.mob.cacheName, m.mob.path, 34, 67);
 			this.load.spritesheet(m.guard.cacheName, m.guard.path, 34, 67);

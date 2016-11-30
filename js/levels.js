@@ -30,19 +30,15 @@ Adventure.maps = [
 		},
 		dec1: {
 			cacheName: 'dec1-1',
-			path: 'assets/img/rostov/decor-1.png'
+			path: 'assets/img/moscow/decor-1.png'
 		},
 		dec2: {
 			cacheName: 'dec1-2',
-			path: 'assets/img/rostov/decor-2.png'
+			path: 'assets/img/moscow/decor-2.png'
 		},
 		dec3: {
 			cacheName: 'dec1-3',
-			path: 'assets/img/rostov/decor-3.png'
-		},
-		dec4: {
-			cacheName: 'dec1-4',
-			path: 'assets/img/rostov/decor-4.png'
+			path: 'assets/img/moscow/decor-3.png'
 		}
 	},
 	{
@@ -71,19 +67,15 @@ Adventure.maps = [
 		},
 		dec1: {
 			cacheName: 'dec2-1',
-			path: 'assets/img/rostov/decor-1.png'
+			path: 'assets/img/piter/decor-1.png'
 		},
 		dec2: {
 			cacheName: 'dec2-2',
-			path: 'assets/img/rostov/decor-2.png'
+			path: 'assets/img/piter/decor-2.png'
 		},
 		dec3: {
 			cacheName: 'dec2-3',
-			path: 'assets/img/rostov/decor-3.png'
-		},
-		dec4: {
-			cacheName: 'dec2-4',
-			path: 'assets/img/rostov/decor-4.png'
+			path: 'assets/img/piter/decor-3.png'
 		}
 	},
 	{
@@ -121,10 +113,6 @@ Adventure.maps = [
 		dec3: {
 			cacheName: 'dec3-3',
 			path: 'assets/img/rostov/decor-3.png'
-		},
-		dec4: {
-			cacheName: 'dec3-4',
-			path: 'assets/img/rostov/decor-4.png'
 		}
 	},
 	{
@@ -162,10 +150,6 @@ Adventure.maps = [
 		dec3: {
 			cacheName: 'dec4-3',
 			path: 'assets/img/cherkassy/decor-3.png'
-		},
-		dec4: {
-			cacheName: 'dec4-4',
-			path: 'assets/img/cherkassy/decor-4.png'
 		}
 	}
 ];
