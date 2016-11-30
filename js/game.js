@@ -10,6 +10,7 @@ Adventure.Game = function() {
 
 Adventure.Game.prototype = {
 	init: function(level) {
+		this.o = {};
 		this.o.level = level;
 		
 		this.game.sound.stopAll();
@@ -153,9 +154,9 @@ Adventure.Game.prototype = {
 		this.o.dec2.tilePosition.x = -this.game.camera.x * 0.05;
 		this.o.dec3.tilePosition.x = -this.game.camera.x * 0.1;
 		
-		this.o.dec3.tilePosition.y = -this.game.camera.y * 0.1;
-		this.o.dec2.tilePosition.y = -this.game.camera.y * 0.05;
-		this.o.dec3.tilePosition.y = -this.game.camera.y * 0.1;
+		this.o.dec1.y = this.game.camera.y + this.game.camera.height - this.o.dec1.height;
+		this.o.dec2.y = this.game.camera.y + this.game.camera.height - this.o.dec2.height;
+		this.o.dec3.y = this.game.camera.y + this.game.camera.height - this.o.dec3.height;
 	},
 	
 	update: function() {

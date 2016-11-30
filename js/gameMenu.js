@@ -35,6 +35,11 @@ Adventure.GameMenu = function(state) {
 		state.game.add.text(
 			0,
 			0,
+			(state.o.level < (Adventure.maps.length - 1)) ? 'Следующий уровень' : 'Титры',
+			itemStyle),
+		state.game.add.text(
+			0,
+			0,
 			'Выход',
 			itemStyle)
 	]);
@@ -59,7 +64,8 @@ Adventure.GameMenu = function(state) {
 };
 
 Adventure.GameMenu.MUSIC_ITEM = 0;
-Adventure.GameMenu.EXIT_ITEM = 1;
+Adventure.GameMenu.NEXT_LEVEL = 1;
+Adventure.GameMenu.EXIT_ITEM = 2;
 
 Adventure.GameMenu.prototype.setActive = function(itemIdx) {
 	var item = this.menuGroup.getAt(itemIdx);
@@ -72,7 +78,7 @@ Adventure.GameMenu.prototype.setActive = function(itemIdx) {
 	this.pauseHead.fill = 'white';
 };
 
-Adventure.GameMenu.prototype.itemUp = function() {
+Adventure.GameMenu.prototype.itemDown = function() {
 	if (this.currentItemIdx < (this.menuGroup.length - 1)) {
 		this.setActive(this.currentItemIdx + 1);
 	} else {
@@ -80,7 +86,7 @@ Adventure.GameMenu.prototype.itemUp = function() {
 	}
 };
 
-Adventure.GameMenu.prototype.itemDown = function() {
+Adventure.GameMenu.prototype.itemUp = function() {
 	if (this.currentItemIdx > 0) {
 		this.setActive(this.currentItemIdx - 1);
 	} else {
@@ -91,7 +97,9 @@ Adventure.GameMenu.prototype.itemDown = function() {
 Adventure.GameMenu.prototype.itemEnter = function() {
 	if ( this.currentItemIdx === Adventure.GameMenu.MUSIC_ITEM ) {
 		this.musicItemEnter();
-	} else if ( this.currentItemIdx == Adventure.GameMenu.EXIT_ITEM ) {
+	} else if ( this.currentItemIdx === Adventure.GameMenu.NEXT_LEVEL ) {
+		this.nextLevel();
+	} else if ( this.currentItemIdx === Adventure.GameMenu.EXIT_ITEM ) {
 		this.exitItemEnter();
 	}
 };
@@ -101,6 +109,16 @@ Adventure.GameMenu.prototype.musicItemEnter = function() {
 	Adventure.setMuteState(!Adventure.getMuteState());
 	
 	this.musicItemUpdate();
+};
+
+Adventure.GameMenu.prototype.nextLevel = function() {
+	this.unpause();
+	
+	if (this.state.o.level < (Adventure.maps.length - 1)) {
+		this.state.game.state.start('middleState', true, false, this.state.o.level + 1);
+	} else {
+		this.state.game.state.start('captions', true, false);
+	}
 };
 
 Adventure.GameMenu.prototype.musicItemUpdate = function() {
