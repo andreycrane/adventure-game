@@ -30,9 +30,9 @@ Adventure.Menu.prototype = {
 		this.text = this.game.add.text(
 			this.game.world.centerX,
 			this.game.world.centerY,
-			'Press "Z" to start',
+			'Press "Enter" to start',
 			{
-				font: '15px Aldrich',
+				font: '18px Press Start 2P',
 				fill: 'white'
 			}
 		);
@@ -40,10 +40,10 @@ Adventure.Menu.prototype = {
 		
 		this.captions = this.game.add.text(
 			this.game.world.centerX,
-			this.game.world.centerY + 30,
+			this.game.world.centerY + 33,
 			'Press "Space" to view captions',
 			{
-				font: '15px Aldrich',
+				font: '18px Press Start 2P',
 				fill: 'white'
 			}
 		);
@@ -63,7 +63,7 @@ Adventure.Menu.prototype = {
 	},
 	
 	update: function() {
-		if (this.input.keyboard.isDown(Phaser.Keyboard.Z)) {
+		if (this.input.keyboard.isDown(Phaser.Keyboard.ENTER)) {
 			this.game.state.start('middleState', true, false, 0);
 		}
 		
