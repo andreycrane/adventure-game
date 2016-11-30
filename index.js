@@ -11,7 +11,7 @@ http.createServer((req, res) => {
 	if ( filePath == './' && process.env.NODE_ENV === 'development') {
 		filePath = './index.html';
 	} else if (filePath == './' && process.env.NODE_ENV === 'production') {
-		filePath = './dist/index.html';
+		filePath = './index.html.production';
 	}
 	
 	const extname = path.extname(filePath);
