@@ -76,5 +76,10 @@ Adventure.Preload.prototype = {
 		this.title.anchor.set(0.5, 0.5);
 		
 		this.game.sound.mute = Adventure.getMuteState();
+	},
+	
+	render: function() {
+		this.game.stage.backgroundColor = '#272e35';
+		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 	}
 };
