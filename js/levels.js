@@ -50,7 +50,7 @@ Adventure.maps = [
 		
 		json: {
 			cacheName: 'level2',
-			path: 'assets/tilemap/level1.json'
+			path: 'assets/tilemap/level4.json'
 		},
 		tileset: {
 			cacheName: 'tiles2',
@@ -66,7 +66,7 @@ Adventure.maps = [
 			path: 'assets/img/mob2-set.png'
 		},
 		guard: {
-			cacheName: 'guard1',
+			cacheName: 'guard2',
 			path: 'assets/img/pasha-set.png'
 		},
 		dec1: {
@@ -74,15 +74,15 @@ Adventure.maps = [
 			path: 'assets/img/rostov/decor-1.png'
 		},
 		dec2: {
-			cacheName: 'dec2-1',
+			cacheName: 'dec2-2',
 			path: 'assets/img/rostov/decor-2.png'
 		},
 		dec3: {
-			cacheName: 'dec3-3',
+			cacheName: 'dec2-3',
 			path: 'assets/img/rostov/decor-3.png'
 		},
 		dec4: {
-			cacheName: 'dec4-4',
+			cacheName: 'dec2-4',
 			path: 'assets/img/rostov/decor-4.png'
 		}
 	},
@@ -99,7 +99,7 @@ Adventure.maps = [
 			path: 'assets/img/blocks1.png'
 		},
 		bg:  {
-			cacheName: 'bg2',
+			cacheName: 'bg3',
 			path: 'assets/img/rostov/bg.png'
 		},
 		mob: {
@@ -107,15 +107,15 @@ Adventure.maps = [
 			path: 'assets/img/mob3-set.png'
 		},
 		guard: {
-			cacheName: 'guard1',
+			cacheName: 'guard3',
 			path: 'assets/img/pasha-set.png'
 		},
 		dec1: {
-			cacheName: 'dec2-1',
+			cacheName: 'dec3-1',
 			path: 'assets/img/rostov/decor-1.png'
 		},
 		dec2: {
-			cacheName: 'dec2-1',
+			cacheName: 'dec3-2',
 			path: 'assets/img/rostov/decor-2.png'
 		},
 		dec3: {
@@ -123,7 +123,7 @@ Adventure.maps = [
 			path: 'assets/img/rostov/decor-3.png'
 		},
 		dec4: {
-			cacheName: 'dec4-4',
+			cacheName: 'dec3-4',
 			path: 'assets/img/rostov/decor-4.png'
 		}
 	},
@@ -140,7 +140,7 @@ Adventure.maps = [
 			path: 'assets/img/blocks1.png'
 		},
 		bg:  {
-			cacheName: 'bg2',
+			cacheName: 'bg4',
 			path: 'assets/img/cherkassy/bg.png'
 		},
 		mob: {
@@ -148,7 +148,7 @@ Adventure.maps = [
 			path: 'assets/img/mob4-set.png'
 		},
 		guard: {
-			cacheName: 'guard1',
+			cacheName: 'guard4',
 			path: 'assets/img/pasha-set.png'
 		},
 		dec1: {

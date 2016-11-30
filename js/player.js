@@ -128,7 +128,6 @@ Adventure.Player.prototype.die = function() {
 
 	this.state.game.paused = true;
 	this.state.o.levelSound.stop();
-	this.state.game.sound.mute = false;
 	this.lossSound.play();
 };
 
