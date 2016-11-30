@@ -60,9 +60,11 @@ Adventure.Guard.prototype.update = function() {
 };
 
 Adventure.Guard.prototype.moveNext = function() {
-	var me = this;
+	var
+		me = this,
+		text = this.customText || 'Ну что, полетели дальше? :)';
 	
-	this.showText('Ну что, полетели дальше? :)');
+	this.showText(text);
 	
 	this.t.hideTextTween(function() {
 		if (me.state.o.level < (Adventure.maps.length - 1)) {
