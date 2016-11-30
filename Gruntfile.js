@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 				files: {
 					'dist/js/built.min.js': [
 						'js/levels.js',
+						'js/boot.js',
 						'js/speechBubble.js',
 						'js/preload.js',
 						'js/middleState.js',
