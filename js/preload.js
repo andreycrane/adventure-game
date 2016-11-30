@@ -6,18 +6,35 @@ var Adventure = Adventure || {};
 Adventure.Preload = function() {};
 
 Adventure.Preload.prototype = {
+	updateProgress: function() {
+		this.loaderText.setText(this.load.progress + '%');
+	},
+	
 	preload: function() {
 		var me = this;
 		
-		window.WebFontConfig = {
-			active: function() {
-				me.game.time.events.add(Phaser.Timer.SECOND, me.state.start.bind(me.state, 'menu'));
-			},
-			
-			google: {
-				families: ['Bungee Inline', 'Press Start 2P:regular:cyrillic,latin'],
+		this.loadingBar = this.add.sprite(
+			this.state.game.camera.x + (this.state.game.camera.width / 2),
+			this.state.game.camera.y + (this.state.game.camera.height / 2),
+			"loading"
+		);
+		this.loadingBar.anchor.setTo(0.5,0.5);
+		this.load.setPreloadSprite(this.loadingBar);
+		
+		this.add.text(0, 0, "test text", { font: '10px Press Start 2P', fill: 'black' });
+		
+		this.loaderText = this.add.text(
+			this.state.game.camera.x + (this.state.game.camera.width / 2),
+			this.state.game.camera.y + (this.state.game.camera.height / 2) - 20,
+			"0%",
+			{
+				font: '15px Aldrich',
+				fill: 'white'
 			}
-		};
+		);
+		this.loaderText.anchor.set(0.5, 0);
+		
+		this.loopedProgress = this.game.time.events.loop(Phaser.Timer.SECOND, this.updateProgress, this);
 		
 		// Загрузка данных карт
 		Adventure.maps.forEach(function(m) {
@@ -35,15 +52,11 @@ Adventure.Preload.prototype = {
 		}, this);
 		
 		
-		this.load.spritesheet('dude', 'assets/img/dude.png', 32, 48);
 		this.load.spritesheet('hero', 'assets/img/hero-set.png', 34, 68);
 		this.load.spritesheet('man-set', 'assets/img/man-set.png', 34, 68);
 		this.load.spritesheet('woman-set', 'assets/img/woman-set.png', 34, 68);
 		
-		this.load.image('pasha', 'assets/img/Pasha.png', 32, 48);
 		this.load.image('bullet', 'assets/img/bullet_sprite.png');
-		this.load.image('decor', 'assets/img/decor.png');
-		this.load.image('piter_back', 'assets/img/piter_back.png');
 		
 		this.load.audio('track1', ['assets/music/track1.ogg']);
 		this.load.audio('track3', ['assets/music/track3.ogg']);
@@ -56,25 +69,10 @@ Adventure.Preload.prototype = {
 		this.load.audio('loss', ['assets/music/loss.ogg']);
 		
 		this.load.text('captions', 'assets/text/captions.txt');
-		
-		this.load.script('webfont', '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 	},
 	
 	create: function() {
-		this.game.stage.backgroundColor = '#272e35';
-		this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
-		
-		this.title = this.game.add.text(
-			this.game.world.centerX,
-			this.game.world.centerY - 10,
-			'Loading...',
-			{
-				font: '40px Press Start 2P',
-				fill: 'white'
-			}
-		);
-		this.title.anchor.set(0.5, 0.5);
-		
-		this.game.sound.mute = Adventure.getMuteState();
+		this.game.time.events.remove(this.loopedProgress);
+		this.game.state.start('menu');
 	}
 };
