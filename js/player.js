@@ -41,11 +41,16 @@ Adventure.Player = function(state, x, y) {
 
 	// Создаем сотню заготовок спрайтов пуль
 	// по умолчанию они не отображены на экране
-	this.bulletPool.createMultiple(100, 'bullet');
+	this.bulletPool.createMultiple(100, 'bullet-phone', 3);
 
 	// Устанавливаем якоря спрайтов на центр
 	this.bulletPool.setAll('anchor.x', 0.5);
 	this.bulletPool.setAll('anchor.y', 0.5);
+	
+	this.bulletPool.callAll('animations.add', 'animations', 'rotate_left', [3, 4, 5, 6, 7, 8, 9, 10], 10, true);
+	this.bulletPool.callAll('animations.add', 'animations', 'rotate_right', [11, 12, 13, 14, 15, 16, 17, 18], 10, true);
+	this.bulletPool.callAll('animations.add', 'animations', 'hit_left', [0, 1, 2], 10, false);
+	this.bulletPool.callAll('animations.add', 'animations', 'hit_right', [19, 20, 21], 10, false);
 
 	// Автоматически уничтожаем пули если они выходят за границу экрана
 	this.bulletPool.setAll('outOfBoundsKill', true);
@@ -109,6 +114,9 @@ Adventure.Player.prototype.fire = function() {
 	bullet.reset(this.x + (this.width / 2), this.y + (this.height / 2));
 
 	bullet.body.velocity.x = (this.direction == 'right') ? 600 : -600;
+	
+	bullet.animations.play('rotate_' + this.direction);
+	bullet.direction = this.direction;
 
 	// время начала бездействия
 	this.stopTime = this.state.game.time.now;
@@ -204,7 +212,7 @@ Adventure.Player.prototype.updateBullets = function() {
 		this.state.o.levelLayer,
 		function(bullet) {
 			this.state.game.sound.play('explosion', 0.1);
-			bullet.kill();
+			bullet.play('hit_' + bullet.direction, 10, false, true);
 		},
 		null,
 		this
@@ -240,7 +248,7 @@ Adventure.Player.prototype.updateEnemies = function() {
 
 Adventure.Player.prototype.enemyHit = function(bullet, enemy) {
 	// убиваем пулю и врага
-	bullet.kill();
+	bullet.play('hit_' + bullet.direction, 10, false, true);
 	enemy.die();
 	this.state.game.sound.play('explosion', 0.1);
 };
