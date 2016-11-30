@@ -32,7 +32,6 @@ Adventure.Preload.prototype = {
 			
 			this.load.spritesheet(m.mob.cacheName, m.mob.path, 34, 67);
 			this.load.spritesheet(m.guard.cacheName, m.guard.path, 34, 67);
-			
 		}, this);
 		
 		
@@ -47,7 +46,6 @@ Adventure.Preload.prototype = {
 		this.load.image('piter_back', 'assets/img/piter_back.png');
 		
 		this.load.audio('track1', ['assets/music/track1.ogg']);
-		this.load.audio('track2', ['assets/music/track2.ogg']);
 		this.load.audio('track3', ['assets/music/track3.ogg']);
 		this.load.audio('track4', ['assets/music/track4.ogg']);
 		
