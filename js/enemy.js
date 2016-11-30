@@ -85,8 +85,10 @@ Adventure.Enemy.prototype.moveLeft = function() {
 	this.stop();
 	
 	this.leftTimeout = setTimeout(function() {
-		me.body.velocity.x = -Adventure.Enemy.velocity;
-		me.animations.play('left');
+		if ( me.body ) {
+			me.body.velocity.x = -Adventure.Enemy.velocity;
+			me.animations.play('left');
+		}
 	}, 1000);
 };
 
@@ -96,8 +98,10 @@ Adventure.Enemy.prototype.moveRight = function() {
 	this.stop();
 	
 	this.rightTimeout = setTimeout(function() {
-		me.body.velocity.x = Adventure.Enemy.velocity;
-		me.animations.play('right');
+		if ( me.body ) {
+			me.body.velocity.x = Adventure.Enemy.velocity;
+			me.animations.play('right');
+		}
 	}, 1000);
 };
 

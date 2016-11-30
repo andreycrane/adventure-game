@@ -15,49 +15,41 @@ Adventure.Menu.prototype = {
 	create: function() {
 		this.game.stage.backgroundColor = '#272e35';
 		
-		this.title = this.game.add.text(
-			this.game.world.centerX,
-			this.game.world.centerY - 50,
-			'Kurt Adventure',
-			{
-				font: '60px Bungee Inline',
-				fill: 'white',
-				fontStyle: 'italic'
-			}
-		);
-		this.title.anchor.set(0.5, 0.5);
+		this.game.add.image(0, 0, 'intro');
 		
-		this.text = this.game.add.text(
-			this.game.world.centerX,
-			this.game.world.centerY,
-			'Press "Enter" to start',
-			{
-				font: '18px Press Start 2P',
-				fill: 'white'
-			}
-		);
-		this.text.anchor.set(0.5, 0.5);
+		//this.title = this.game.add.text(
+			//this.game.world.centerX,
+			//this.game.world.centerY - 50,
+			//'Kurt Adventure',
+			//{
+				//font: '60px Bungee Inline',
+				//fill: 'white',
+				//fontStyle: 'italic'
+			//}
+		//);
+		//this.title.anchor.set(0.5, 0.5);
 		
-		this.captions = this.game.add.text(
-			this.game.world.centerX,
-			this.game.world.centerY + 33,
-			'Press "Space" to view captions',
-			{
-				font: '18px Press Start 2P',
-				fill: 'white'
-			}
-		);
-		this.captions.anchor.set(0.5, 0.5);
+		//this.text = this.game.add.text(
+			//this.game.world.centerX,
+			//this.game.world.centerY,
+			//'Press "Enter" to start',
+			//{
+				//font: '18px Press Start 2P',
+				//fill: 'white'
+			//}
+		//);
+		//this.text.anchor.set(0.5, 0.5);
 		
-		this.test = this.game.add.text(
-			0,
-			0,
-			'Press "Z" to start',
-			{
-				font: '15px Press Start 2P',
-				fill: '#272e35'
-			}
-		);
+		//this.captions = this.game.add.text(
+			//this.game.world.centerX,
+			//this.game.world.centerY + 33,
+			//'Press "Space" to view captions',
+			//{
+				//font: '18px Press Start 2P',
+				//fill: 'white'
+			//}
+		//);
+		//this.captions.anchor.set(0.5, 0.5);
 		
 		this.game.sound.play('track1', 0.3);
 	},

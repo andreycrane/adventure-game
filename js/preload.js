@@ -50,6 +50,7 @@ Adventure.Preload.prototype = {
 			this.load.spritesheet(m.guard.cacheName, m.guard.path, 34, 67);
 		}, this);
 		
+		this.load.image('intro', 'assets/img/intro.png');
 		
 		this.load.spritesheet('hero', 'assets/img/hero-set.png', 34, 68);
 		this.load.spritesheet('man-set', 'assets/img/man-set.png', 34, 68);
