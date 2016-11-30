@@ -22,7 +22,7 @@
     "url": "https://github.com/andreycrane/adventure-game/issues"
   },
   "homepage": "https://github.com/andreycrane/adventure-game#readme",
-  "devDependencies": {
+  "dependencies": {
     "grunt": "^1.0.1",
     "grunt-cli": "^1.2.0",
     "grunt-contrib-uglify": "^2.0.0"
