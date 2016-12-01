@@ -50,7 +50,8 @@ Adventure.Game.prototype = {
 			mapData = Adventure.maps[this.o.level],
 			dec1 = this.game.cache.getImage(mapData.dec1.cacheName),
 			dec2 = this.game.cache.getImage(mapData.dec2.cacheName),
-			dec3 = this.game.cache.getImage(mapData.dec3.cacheName);
+			dec3 = this.game.cache.getImage(mapData.dec3.cacheName),
+			dec4 = this.game.cache.getImage(mapData.dec4.cacheName);
 		
 		this.o.dec1 = this.game.add.tileSprite(
 			0,
@@ -75,6 +76,14 @@ Adventure.Game.prototype = {
 			this.o.map.widthInPixels,
 			dec3.height,
 			mapData.dec3.cacheName
+		);
+		
+		this.o.dec4 = this.game.add.tileSprite(
+			0,
+			this.o.map.heightInPixels - dec4.height,
+			this.o.map.widthInPixels,
+			dec4.height,
+			mapData.dec4.cacheName
 		);
 	},
 	
@@ -153,6 +162,7 @@ Adventure.Game.prototype = {
 		this.o.dec1.tilePosition.x = -this.game.camera.x * 0.025;
 		this.o.dec2.tilePosition.x = -this.game.camera.x * 0.05;
 		this.o.dec3.tilePosition.x = -this.game.camera.x * 0.1;
+		this.o.dec4.tilePosition.x = -this.game.camera.x * 0.2;
 	},
 	
 	update: function() {
