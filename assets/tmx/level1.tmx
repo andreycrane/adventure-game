@@ -10,7 +10,7 @@
   <property name="thorns" value="81"/>
  </properties>
  <tileset firstgid="1" name="blocks" tilewidth="34" tileheight="34" tilecount="400" columns="20">
-  <image source="../img/blocks1.png" width="680" height="680"/>
+  <image source="../../../../Users/ucoz/Dropbox/k-advanture/repo/adventure-game/assets/img/blocks1.png" width="680" height="680"/>
  </tileset>
  <layer name="level-layer" width="245" height="38">
   <data>
@@ -9334,7 +9334,7 @@
   </object>
   <object id="116" gid="25" x="884" y="1054" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Мирового признания! "/>
+    <property name="congradulation" value="Мирового признания!"/>
    </properties>
   </object>
   <object id="117" gid="24" x="884" y="170" width="34" height="34">

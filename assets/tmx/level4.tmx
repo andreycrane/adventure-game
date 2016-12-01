@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="70" tilewidth="34" tileheight="34" nextobjectid="81">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="70" tilewidth="34" tileheight="34" nextobjectid="87">
  <properties>
   <property name="colleguesMan" value="25"/>
   <property name="colleguesWoman" value="24"/>
@@ -10,7 +10,7 @@
   <property name="thorns" value="181,182,183,184"/>
  </properties>
  <tileset firstgid="1" name="blocks" tilewidth="34" tileheight="34" tilecount="400" columns="20">
-  <image source="../img/blocks1.png" width="680" height="680"/>
+  <image source="../../../../Users/ucoz/Dropbox/k-advanture/repo/adventure-game/assets/img/blocks1.png" width="680" height="680"/>
  </tileset>
  <layer name="level-layer" width="200" height="70">
   <data>
@@ -5067,7 +5067,7 @@
    <tile gid="121"/>
    <tile gid="102"/>
    <tile gid="0"/>
-   <tile gid="383"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -5273,7 +5273,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="106"/>
+   <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -14036,114 +14036,69 @@
   <object id="78" gid="26" x="4250" y="1564" width="34" height="34"/>
  </objectgroup>
  <objectgroup name="collegue-layer">
-  <object id="43" gid="24" x="0" y="1360" width="34" height="34">
+  <object id="45" gid="24" x="2652" y="2312" width="34" height="34">
    <properties>
-    <property name="congradulation" value="!!"/>
+    <property name="congradulation" value="Желаю много новых мировых проектов, стабильного роста, позитива в любой стране и ситуации! С днем рождения!"/>
    </properties>
   </object>
-  <object id="44" gid="24" x="0" y="544" width="34" height="34">
+  <object id="55" gid="25" x="5950" y="1564" width="34" height="34">
    <properties>
-    <property name="congradulation" value="!!!"/>
-   </properties>
-  </object>
-  <object id="45" gid="24" x="2074" y="1904" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!"/>
-   </properties>
-  </object>
-  <object id="47" gid="24" x="1564" y="136" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!!"/>
-   </properties>
-  </object>
-  <object id="48" gid="24" x="3468" y="1564" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!!"/>
-   </properties>
-  </object>
-  <object id="49" gid="24" x="714" y="272" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!"/>
-   </properties>
-  </object>
-  <object id="50" gid="24" x="3774" y="340" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!"/>
-   </properties>
-  </object>
-  <object id="51" gid="24" x="5950" y="1564" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!!"/>
-   </properties>
-  </object>
-  <object id="52" gid="24" x="6018" y="2040" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!"/>
-   </properties>
-  </object>
-  <object id="54" gid="24" x="2584" y="136" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!!"/>
-   </properties>
-  </object>
-  <object id="55" gid="25" x="4318" y="2176" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!"/>
+    <property name="congradulation" value="Все что хочется пожелать: это титанового здоровья, а будет это, то – посетить все самые заветные и тайные уголки мира, и иметь возможность улететь за три девять земель без связи и быть спокойным и беззаботным и без форс-мажоров :) "/>
    </properties>
   </object>
   <object id="56" gid="25" x="1258" y="2244" width="34" height="34">
    <properties>
-    <property name="congradulation" value="!!!"/>
-   </properties>
-  </object>
-  <object id="57" gid="25" x="2618" y="2312" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!!"/>
-   </properties>
-  </object>
-  <object id="58" gid="25" x="4930" y="1836" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!!"/>
+    <property name="congradulation" value="С днем рождения!"/>
    </properties>
   </object>
   <object id="59" gid="25" x="714" y="1496" width="34" height="34">
    <properties>
-    <property name="congradulation" value="!!"/>
+    <property name="congradulation" value="Счастья! Здоровья!"/>
    </properties>
   </object>
-  <object id="60" gid="25" x="4454" y="1292" width="34" height="34">
+  <object id="60" gid="25" x="4930" y="1836" width="34" height="34">
    <properties>
-    <property name="congradulation" value="!!!"/>
-   </properties>
-  </object>
-  <object id="61" gid="25" x="5134" y="2312" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="!!!"/>
+    <property name="congradulation" value="С днём рождения! Пусть ситуаций, располагающих к спасения мира и поддержанию рабочей дисциплины внутри офисов будет поменьше, а в идеале – они останутся только на поздравительных видео :)"/>
    </properties>
   </object>
   <object id="62" gid="25" x="3808" y="952" width="34" height="34">
    <properties>
-    <property name="congradulation" value="!!"/>
+    <property name="congradulation" value="С днем рождения! Пусть самое ценное в жизни не пройдет мимо тебя."/>
    </properties>
   </object>
   <object id="63" gid="25" x="2584" y="884" width="34" height="34">
    <properties>
-    <property name="congradulation" value="!!!"/>
+    <property name="congradulation" value="С днем рождения!"/>
    </properties>
   </object>
-  <object id="64" gid="25" x="1564" y="1904" width="34" height="34">
+  <object id="82" gid="25" x="68" y="544" width="34" height="34">
    <properties>
-    <property name="congradulation" value="!!!"/>
+    <property name="congradulation" value="С днем рождения!"/>
+   </properties>
+  </object>
+  <object id="83" gid="25" x="68" y="1360" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="С днем рождения!"/>
+   </properties>
+  </object>
+  <object id="84" gid="25" x="646" y="272" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="С днем рождения!"/>
+   </properties>
+  </object>
+  <object id="85" gid="25" x="2618" y="136" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="С днем рождения! Магазин будет отличным подарком."/>
+   </properties>
+  </object>
+  <object id="86" gid="25" x="3468" y="1564" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="Зачем много слов, если можно всё сказать в двух словах: С днюшкой! :)"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="guard-layer">
   <object id="72" gid="26" x="476" y="272" width="34" height="34"/>
-  <object id="79" gid="28" x="510" y="2312" width="34" height="34">
-   <properties>
-    <property name="customText" value="Отлично! Ты справился! Теперь коллеги в этом офисе могут вздохнуть спокойно, но тебе некогда отдыхать, другие офисы тоже нуждаются в твоей помощи! Следуй за мной, я перенесу тебя туда!"/>
-   </properties>
-  </object>
   <object id="80" gid="28" x="6630" y="2040" width="34" height="34">
    <properties>
     <property name="customText" value="Отлично! Ты справился! Теперь коллеги в этом офисе могут вздохнуть спокойно, но тебе некогда отдыхать, другие офисы тоже нуждаются в твоей помощи! Следуй за мной, я перенесу тебя туда!"/>

@@ -43,7 +43,7 @@
                  "name":"",
                  "properties":
                     {
-                     "congradulation":"\u041c\u0438\u0440\u043e\u0432\u043e\u0433\u043e \u043f\u0440\u0438\u0437\u043d\u0430\u043d\u0438\u044f! "
+                     "congradulation":"\u041c\u0438\u0440\u043e\u0432\u043e\u0433\u043e \u043f\u0440\u0438\u0437\u043d\u0430\u043d\u0438\u044f!"
                     },
                  "propertytypes":
                     {
@@ -625,7 +625,7 @@
         {
          "columns":20,
          "firstgid":1,
-         "image":"..\/img\/blocks1.png",
+         "image":"..\/..\/..\/..\/Users\/ucoz\/Dropbox\/k-advanture\/repo\/adventure-game\/assets\/img\/blocks1.png",
          "imageheight":680,
          "imagewidth":680,
          "margin":0,
