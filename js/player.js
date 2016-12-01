@@ -133,9 +133,10 @@ Adventure.Player.prototype.die = function() {
 		this.state.game.paused = false;
 		this.state.game.state.restart(true, false, this.state.o.level);
 	}, this);
-
+	
 	this.state.game.paused = true;
 	this.state.o.levelSound.stop();
+	this.state.game.sound.mute = Adventure.getMuteState();
 	this.lossSound.play();
 };
 
