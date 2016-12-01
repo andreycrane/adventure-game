@@ -44,10 +44,12 @@ Adventure.Collegue.prototype.update = function() {
 
 
 Adventure.Collegue.prototype.showText = function() {
-	var me = this;
+	var
+		me = this,
+		congradulation = me.congradulation || 'С днём рождения!';
 	
 	if ( !this.t.shown ) {
-		this.t.showText(me.congradulation, this.left, this.top);
+		this.t.showText(congradulation, this.left, this.top);
 		this.t.hideTextTween(function() { me.kill(); });
 	}
 };
