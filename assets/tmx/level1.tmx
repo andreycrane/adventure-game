@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="245" height="38" tilewidth="34" tileheight="34" nextobjectid="146">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="245" height="38" tilewidth="34" tileheight="34" nextobjectid="147">
  <properties>
   <property name="colleguesMan" value="25"/>
   <property name="colleguesWoman" value="24"/>
@@ -9329,118 +9329,84 @@
  <objectgroup name="collegue-layer">
   <object id="115" gid="24" x="340" y="340" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 1!"/>
+    <property name="congradulation" value="Будь таким же сильным, смелым и умным! И чтобы все то, что ты начинал всегда приводило в успеху и прибыли!:)"/>
    </properties>
   </object>
   <object id="116" gid="25" x="884" y="1054" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 2"/>
+    <property name="congradulation" value="Мирового признания! "/>
    </properties>
   </object>
   <object id="117" gid="24" x="884" y="170" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 3"/>
+    <property name="congradulation" value="Женя,  с Новым Годом Твоей жизни! Пусть будет еще больше путешествий, новых встреч и приятных моментов каждый день! Ведь Жизнь — либо дерзкое приключение, либо ничто."/>
    </properties>
   </object>
   <object id="118" gid="25" x="1190" y="340" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 4"/>
+    <property name="congradulation" value="Безлимитной энергии и несокрушимого здоровья!"/>
    </properties>
   </object>
   <object id="119" gid="24" x="1496" y="1088" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 5"/>
+    <property name="congradulation" value="Поздравляем с днем рождения! Пусть все твои действия конвертируются только в победу и в успех. А удача пусть подстерегает на каждом шагу!"/>
    </properties>
   </object>
   <object id="120" gid="25" x="1734" y="408" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 6"/>
-   </properties>
-  </object>
-  <object id="121" gid="24" x="2108" y="170" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="Поздравляю 7"/>
+    <property name="congradulation" value="Желаю скоропостижного достижения поставленных целей, неминуемой удачи, неотвратимого успеха, неизбежной сбычи всех мечт, получения непоправимой выгоды! Счастья и здоровья, радости и удачи!"/>
    </properties>
   </object>
   <object id="122" gid="25" x="2516" y="1020" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 8"/>
-   </properties>
-  </object>
-  <object id="123" gid="24" x="2822" y="204" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="Поздравляю 9"/>
-   </properties>
-  </object>
-  <object id="124" gid="25" x="3162" y="612" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="Поздравляю 10"/>
+    <property name="congradulation" value="+1 к поздравлениям и спасибо за помощь"/>
    </properties>
   </object>
   <object id="125" gid="24" x="2958" y="1088" width="34" height="34">
    <properties>
-    <property name="congradulation" value="поздравляю 11"/>
+    <property name="congradulation" value="Дорогой шеф! Поздравляю Вас с Днём Рождения! От всего сердца желаю Вам благополучия и счастья. Пусть жизненный путь будет длинным и гладким, и все неудачи обходят его стороной. А главное побольше благодарных и верных сотрудников."/>
    </properties>
   </object>
   <object id="126" gid="25" x="3944" y="1156" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 12"/>
+    <property name="congradulation" value="Женя, Поздравляю ! Здоровья и удовлетворения от новых свершений ! Все получится !"/>
    </properties>
   </object>
   <object id="127" gid="24" x="3944" y="238" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 13"/>
-   </properties>
-  </object>
-  <object id="128" gid="24" x="4454" y="850" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="Поздравляю 14"/>
-   </properties>
-  </object>
-  <object id="129" gid="25" x="5236" y="1020" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="Поздравляю 15"/>
+    <property name="congradulation">Пусть с каждым днём жизнь становится
+только прекраснее!</property>
    </properties>
   </object>
   <object id="130" gid="24" x="5712" y="544" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 16"/>
-   </properties>
-  </object>
-  <object id="131" gid="25" x="6630" y="170" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="Поздравляю 18"/>
-   </properties>
-  </object>
-  <object id="132" gid="25" x="6732" y="1088" width="34" height="34">
-   <properties>
-    <property name="congradulation" value="Поздравляю 19"/>
+    <property name="congradulation" value="С Днём Рождения, Женечка! Ты у нас самый красивый, самый замечательный :) Крепкого тебе здоровья! Продолжай нас всех вдохновлять! Новых подвигов тебе в жизни и растущего благосостояния!"/>
    </properties>
   </object>
   <object id="133" gid="25" x="6426" y="952" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 17"/>
+    <property name="congradulation" value="Женя, happy birthday! Wish you less pointless stress, bigger and more interesting challenges, more time with your son and success in your life!"/>
    </properties>
   </object>
   <object id="134" gid="25" x="7786" y="1156" width="34" height="34">
    <properties>
-    <property name="congradulation" value="Поздравляю 20"/>
+    <property name="congradulation" value="Желаю великих мыслей, сил на их свершение и вдохновения в каждом дне с близкими и друзьями. С Днем Рождения!"/>
    </properties>
   </object>
   <object id="144" gid="24" x="442" y="1224" width="34" height="34">
    <properties>
     <property name="congradulation" value="Женя! Коллеги хотели поздравить тебя с днем рождения, но на наш офис напали зловещие баги и спам! Только ты можешь помочь! На всякий случай: движение СТРЕЛКАМИ, а чтобы отбиться от врагов кидайся в них айфонами - ПРОБЕЛ. Да прибудет с тобой сила!"/>
-    <property name="custom-texture" value="ira-set"/>
+    <property name="customTexture" value="ira-set"/>
+   </properties>
+  </object>
+  <object id="146" gid="24" x="7140" y="850" width="34" height="34">
+   <properties>
+    <property name="congradulation" value="Женя, поздравляю! Много интересных и перспективных проектов, которые дадут пищу твоему выдающемуся уму. Сплоченной команды с горящими глазами и вдохновения. И конечно крепкого здоровья и счастья в личной жизни. "/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="guard-layer">
   <object id="136" gid="28" x="8160" y="510" width="34" height="34">
-   <properties>
-    <property name="customText" value="Отлично! Ты справился! Теперь коллеги в этом офисе могут вздохнуть спокойно, но тебе некогда отдыхать, другие офисы тоже нуждаются в твоей помощи! Следуй за мной, я перенесу тебя туда!"/>
-   </properties>
-  </object>
-  <object id="145" gid="28" x="510" y="1224" width="34" height="34">
    <properties>
     <property name="customText" value="Отлично! Ты справился! Теперь коллеги в этом офисе могут вздохнуть спокойно, но тебе некогда отдыхать, другие офисы тоже нуждаются в твоей помощи! Следуй за мной, я перенесу тебя туда!"/>
    </properties>
